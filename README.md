@@ -1,5 +1,7 @@
 # Overview
 
+See the live site here: https://nickcrider.github.io/ot-docs/
+
 Proof of concept for breaking the Opentrons API Documentation into a separate repository written in Markdown instead of reST.
 
 Current implimentation uses [Material for MkDocs](https://github.com/squidfunk/mkdocs-material)
