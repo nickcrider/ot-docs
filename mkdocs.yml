@@ -9,6 +9,8 @@ theme:
     accent: indigo
   features:
     - tabs
+  icon:
+    repo: fontawesome/brands/github
 
 markdown_extensions:
 - pymdownx.tabbed
@@ -43,7 +45,5 @@ nav:
     - Advanced Control : new_advanced_running.md
   - API Reference : 
     - API Version 2 Reference: new_protocol_api.md
-  
-  
-  
 
+repo_url: https://github.com/nickcrider/ot-docs
