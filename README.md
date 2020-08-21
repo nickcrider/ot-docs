@@ -5,10 +5,10 @@ Proof of concept for breaking the Opentrons API Documentation into a separate re
 Current implimentation uses [Material for MkDocs](https://github.com/squidfunk/mkdocs-material)
 
 This has some neat advantages, including:
-    - Enables separate release cadences for the Docs from the monorepo
-    - Markdown is easiser to use and more portable than reST
-    - Lowers the bar to contributing/changing the docs
-    - Modern tools encorage user interaction
+- Enables separate release cadences for the Docs from the monorepo
+- Markdown is easiser to use and more portable than reST
+- Lowers the bar to contributing/changing the docs
+- Modern tools encorage user interaction
 
 # Setup
 
@@ -30,10 +30,10 @@ The big caveat currently is the generation of the API Reference documentation. C
 
 This is a very early proof of concept. Lots of work remains:
 
-    - Automate the build with a real makefile.
-    - Automate creation of `new_protocol_api.md` from Monorepo.  Bindings exist, I just need to plumb things together so this is automated.
-    - Rename files for better SEO (see the `Examples` Section for an example)
-    - Lots of webdesign stuff
+- Automate the build with a real makefile.
+- Automate creation of `new_protocol_api.md` from Monorepo.  Bindings exist, I just need to plumb things together so this is automated.
+- Rename files for better SEO (see the `Examples` Section for an example)
+- Lots of webdesign stuff
     
 
 
