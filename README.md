@@ -24,7 +24,7 @@ You should now be able to find the docs at `http://localhost:8000` any saved cha
 
 # Notes
 
-The big caveat currently is the generation of the API Reference documentation. Converting the Sphinx based autodoc output to Markdown loses a lot of useful formatting, and rewriting all of the API docstrings in Markdown is a no-go. Therefore, I configured a local branch of the monorepo with `make docs-v2-ref` to generate raw HTML from the (mostly) equivlent template [sphinx-material](https://github.com/bashtage/sphinx-material/). For now, I've just copy-pasted the HTML output into the `new_protocol_api.md` but it's but it will be automate with a makefile, soon. 
+The big caveat currently is the generation of the API Reference documentation. Converting the Sphinx based autodoc output to Markdown loses a lot of useful formatting, and rewriting all of the API docstrings in Markdown is a no-go. Therefore, I configured a local branch of the monorepo with `make docs-v2-ref` to generate raw HTML from the (mostly) equivlent template [sphinx-material](https://github.com/bashtage/sphinx-material/). For now, I've just copy-pasted the HTML output into the `new_protocol_api.md` but it will be automate with a makefile, soon. 
 
 # Todo
 
