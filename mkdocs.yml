@@ -12,6 +12,9 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
+extra:
+  disqus: ot-docs
+
 markdown_extensions:
 - pymdownx.tabbed
 - pymdownx.superfences
