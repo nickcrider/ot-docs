@@ -36,12 +36,16 @@ nav:
     - Complex Commands : new_complex_commands.md
   - Examples :
     - Introduction: new_examples.md 
-    - Common Patterns : 
-        - examples/basic_transfer.md
-        - examples/dilution.md
-        - examples/loops.md
-        - examples/multiple_air_gaps.md
-        - examples/plate_mapping.md
+    - Liquid Handling : 
+      - examples/basic_transfer.md
+      - examples/dilution.md
+      - examples/loops.md
+      - examples/multiple_air_gaps.md
+      - examples/plate_mapping.md
+    - Data Management:
+      - examples/csv.md
+    - Utilities:
+      - examples/replace_tips.md
     - Advanced Control : new_advanced_running.md
   - API Reference : 
     - API Version 2 Reference: new_protocol_api.md
