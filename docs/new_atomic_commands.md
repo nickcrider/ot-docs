@@ -601,7 +601,7 @@ since the 3.19.0 release. Enabling the feature flag allows your robot to
 pause a running protocol and prohibit the protocol from running when the
 robot door is open.
 
-![image](../img/feature_flags/door_safety_switch.png)
+![image](assets/images/feature_flags/door_safety_switch.png)
 
 You can also check whether or not the robot door is closed at a specific
 point in time in the protocol using

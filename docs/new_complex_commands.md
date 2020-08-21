@@ -47,15 +47,15 @@ You can also refer to these images for further clarification.
 
 ### Transfer Diagram
 
-![image](../img/complex_commands/transfer.png){.align-center}
+![image](assets/images/complex_commands/transfer.png){.align-center}
 
 ### Distribute Diagram
 
-![image](../img/complex_commands/robot_distribute.png){.align-center}
+![image](assets/images/complex_commands/robot_distribute.png){.align-center}
 
 ### Consolidate Diagram
 
-![image](../img/complex_commands/robot_consolidate.png){.align-center}
+![image](assets/images/complex_commands/robot_consolidate.png){.align-center}
 
 ------------------------------------------------------------------------
 
@@ -740,6 +740,6 @@ Dropping tip well A1 in "12"
 
 See this image for example,
 
-![image](../img/complex_commands/distribute_illustration_tip.png){.align-center}
+![image](assets/images/complex_commands/distribute_illustration_tip.png){.align-center}
 
 _New in version 2.0_
