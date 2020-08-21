@@ -1,0 +1,49 @@
+site_name: Opentrons API Docs
+
+theme:
+  name: material
+  logo: assets/opentrons_logo_drop.png
+  palette:
+    scheme: preference
+    primary: blue grey
+    accent: indigo
+  features:
+    - tabs
+
+markdown_extensions:
+- pymdownx.tabbed
+- pymdownx.superfences
+- admonition
+- pymdownx.highlight:
+    use_pygments: true
+- pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+nav:
+  - Getting Started :
+    - Overview : index.md
+    - Using Python for Protocols : writing.md
+    - Versioning : versioning.md
+  - Hardware :
+    - Labware : new_labware.md
+    - Pipettes : new_pipette.md
+    - Modules : new_modules.md
+  - Using the API:
+    - Building Block Commands : new_atomic_commands.md
+    - Complex Commands : new_complex_commands.md
+  - Examples :
+    - Introduction: new_examples.md 
+    - Common Patterns : 
+        - examples/basic_transfer.md
+        - examples/dilution.md
+        - examples/loops.md
+        - examples/multiple_air_gaps.md
+        - examples/plate_mapping.md
+    - Advanced Control : new_advanced_running.md
+  - API Reference : 
+    - API Version 2 Reference: new_protocol_api.md
+  
+  
+  
+

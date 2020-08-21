@@ -1,0 +1,25 @@
+# Loops
+
+Loops in Python allow your protocol to perform many actions, or act upon
+many wells, all within just a few lines. The below example loops through
+the numbers `0` to `7`, and uses that loop's current value to transfer
+from all wells in a reservoir to each row of a plate:
+
+```python
+from opentrons import protocol_api
+
+metadata = {'apiLevel': '|apiLevel|'}
+
+def run(protocol: protocol_apiProtocolContext):
+    plate = protocol.load_labware('corning_96_wellplate_360ul_flat', 1)
+    tiprack_1 = protocol.load_labware('opentrons_96_tiprack_300ul', 2)
+    reservoir = protocol.load_labware('usascientific_12_reservoir_22ml', 4)
+    p300 = protocol.load_instrument('p300_single', 'right', tip_racks=[tiprack_1])
+    # distribute 20uL from reservoir:A1 -> plate:row:1
+    # distribute 20uL from reservoir:A2 -> plate:row:2
+    # etc...
+
+    # range() starts at 0 and stops before 8, creating a range of 0-7
+    for i in range(8):
+        p300.distribute(200, reservoir.wells()[i], plate.rows()[i])
+```
