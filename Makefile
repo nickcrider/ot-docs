@@ -13,7 +13,7 @@ setup:
 
 .PHONY: serve
 serve: update-versions
-	echo "Running dev server. Press Ctrl+C to exit!"
+	@echo "Running dev server. Press Ctrl+C to exit!"
 	mkdocs serve
 
 .PHONY: update-versions
