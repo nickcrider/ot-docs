@@ -14,7 +14,7 @@ This has some neat advantages, including:
 
 # Setup
 
-Just like the [Opentrons Monorepo](https://github.com/Opentrons/opentrons/blob/edge/CONTRIBUTING.md#environment-and-repository), you'll need `git`, `pipenv`, and `make` installed. Once you've gotten that taken care of, you can clone the repo, and use `make` to install the dependencies and run the development server:
+Just like the [Opentrons Monorepo](https://github.com/Opentrons/opentrons/blob/edge/CONTRIBUTING.md#environment-and-repository), you'll need `git`, `pipenv`, and `make` installed. Once you've gotten that taken care of, you can clone the repo, use `make` to install the dependencies, and then run the development server:
 
 ```bash
 git clone https://github.com/nickcrider/ot-docs.git
@@ -22,11 +22,11 @@ cd ot-docs
 make setup
 make serve
 ```
-You should now be able to find the docs at `http://localhost:8000` any saved changes to files are automatically reflected
+You should now be able to find the docs at `http://localhost:8000` the server watches files for changes and automatically reloads
 
 # Notes
 
-The big caveat currently is the generation of the API Reference documentation. Converting the Sphinx based autodoc output to Markdown loses a lot of useful formatting, and rewriting all of the API docstrings in Markdown is a no-go. Therefore, I configured a local branch of the monorepo with `make docs-v2-ref` to generate raw HTML from the (mostly) equivlent template [sphinx-material](https://github.com/bashtage/sphinx-material/). For now, I've just copy-pasted the HTML output into the `new_protocol_api.md` but it will be automate with a makefile, soon. 
+The big caveat currently is the generation of the API Reference documentation. Converting the Sphinx based autodoc output to Markdown loses a lot of useful formatting, and rewriting all of the API docstrings in Markdown is a no-go. Therefore, I configured a [branch](https://github.com/Opentrons/opentrons/tree/docs-sphinx-material/api) of the monorepo with `make docs-v2-ref` to generate raw HTML from the (mostly) equivlent template [sphinx-material](https://github.com/bashtage/sphinx-material/). For now, I've just copy-pasted the HTML output into the `new_protocol_api.md` but it will be automate with a makefile, soon. 
 
 # Todo
 
