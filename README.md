@@ -17,7 +17,7 @@ This has some neat advantages, including:
 Install Material for MkDocs with `pip`, clone the repo, and run the development server:
 
 ```bash
-pip install mkdocs-material
+pip install mkdocs-material markdown-include
 git clone https://github.com/nickcrider/ot-docs.git
 cd ot-docs
 mkdocs serve
