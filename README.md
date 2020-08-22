@@ -14,13 +14,13 @@ This has some neat advantages, including:
 
 # Setup
 
-Install Material for MkDocs with `pip`, clone the repo, and run the development server:
+Just like the [Opentrons Monorepo](https://github.com/Opentrons/opentrons/blob/edge/CONTRIBUTING.md#environment-and-repository), you'll need `git`, `pipenv`, and `make` installed. Once you've gotten that taken care of, you can clone the repo, and use `make` to install the dependencies and run the development server:
 
 ```bash
-pip install mkdocs-material markdown-include
 git clone https://github.com/nickcrider/ot-docs.git
 cd ot-docs
-mkdocs serve
+make setup
+make serve
 ```
 You should now be able to find the docs at `http://localhost:8000` any saved changes to files are automatically reflected
 
@@ -32,7 +32,6 @@ The big caveat currently is the generation of the API Reference documentation. C
 
 This is a very early proof of concept. Lots of work remains:
 
-- Automate the build with a real makefile.
 - Automate creation of `new_protocol_api.md` from Monorepo.  Bindings exist, I just need to plumb things together so this is automated.
 - Rename files for better SEO (see the `Examples` Section for an example)
 - Lots of webdesign stuff
