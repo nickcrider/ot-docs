@@ -24,7 +24,11 @@ markdown_extensions:
 - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+- toc:
+    permalink: true
+- markdown_include.include
 
+# see https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs
 nav:
   - Getting Started :
     - Overview : index.md

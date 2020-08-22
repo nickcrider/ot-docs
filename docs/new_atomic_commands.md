@@ -12,7 +12,7 @@ The examples in this section would be added to the following:
 ``` python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     tiprack = protocol.load_labware('corning_96_wellplate_360ul_flat', 2)
@@ -127,7 +127,7 @@ this setup:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     plate = protocol.load_labware(
@@ -211,7 +211,7 @@ This section describes the `InstrumentContext`'s liquid-handling commands.
 The examples in this section should be inserted in the following:
 
 ```python
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol):
     tiprack = protocol.load_labware('corning_96_wellplate_360ul_flat', 2)
@@ -501,7 +501,7 @@ execution pauses.
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     # The start of your protocol goes here...
@@ -535,7 +535,7 @@ None of these functions take any arguments:
 ```python
 from opentrons import protocol_api, types
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     pipette = protocol.load_instrument('p300_single', 'right')
@@ -555,7 +555,7 @@ execution:
 ```python
 from opentrons import protocol_api, types
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     protocol.comment('Hello, world!')
@@ -571,7 +571,7 @@ You can turn the robot rail lights on or off in the protocol using
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     # turn on robot rail lights

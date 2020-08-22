@@ -24,7 +24,7 @@ load it in, and (optionally) a list of associated tipracks:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     # Load a P50 multi on the left slot
@@ -70,7 +70,7 @@ would write:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     # Load a tiprack for 300uL tips
@@ -110,7 +110,7 @@ H, J, L, N, and P).
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     # Load a tiprack for 300uL tips
@@ -204,7 +204,7 @@ tipracks:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     tiprack_left = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
@@ -270,7 +270,7 @@ Each of these attributes can be altered without affecting the others.
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     tiprack = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
@@ -342,7 +342,7 @@ even those executed as part of a transfer.
 ```python
 from opentrons import protocol_api, types
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     tiprack = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
@@ -390,7 +390,7 @@ Its default is 400 mm/s.
 ```python
 from opentrons import protocol_api, types
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     pipette = protocol.load_instrument('p300_single', 'right')
@@ -419,7 +419,7 @@ sets a max speed, and deleting a key or setting it to `None` resets that
 axis's limit to the default:
 
 ```python
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol):
     protocol.max_speeds['X'] = 50  # limit x axis to 50 mm/s

@@ -5,7 +5,7 @@ Moving 100 µL from one well to another:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     plate = protocol.load_labware('corning_96_wellplate_360ul_flat', 1)
@@ -20,7 +20,7 @@ This accomplishes the same thing as the following basic commands:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     plate = protocol.load_labware('corning_96_wellplate_360ul_flat', 1)

@@ -9,7 +9,7 @@ sample.
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     plate = protocol.load_labware('corning_96_wellplate_360ul_flat', 1)

@@ -71,6 +71,8 @@ understand:
 If we were to rewrite this with the Python Protocol API, it would look
 like the following:
 
+
+
 ``` python
 from opentrons import protocol_api
 
@@ -79,7 +81,7 @@ metadata = {
     'protocolName': 'My Protocol',
     'author': 'Name <email@address.com>',
     'description': 'Simple protocol to get started using OT2',
-    'apiLevel': '|apiLevel|'
+    'apiLevel': '{! apilevel.txt !}'
 }
 
 # protocol run function. the part after the colon lets your editor know
@@ -138,7 +140,7 @@ defined in code like this:
 ``` python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '|apiLevel|'}
+metadata = {'apiLevel': '{! apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     pass
