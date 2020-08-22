@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 mkdocs-material = "*"
 markdown-include = "*"
+opentrons = "*"
 
 [dev-packages]
 
