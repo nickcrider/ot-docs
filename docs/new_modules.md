@@ -20,7 +20,7 @@ load a module. It will return an object representing the module.
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
      # Load a Magnetic Module GEN2 in deck slot 1.
@@ -103,7 +103,7 @@ you would do:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
      module = protocol.load_module('Temperature Module', slot)
@@ -158,7 +158,7 @@ following already:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     temp_mod = protocol.load_module('temperature module', '1')
@@ -257,7 +257,7 @@ For the purposes of this section, assume we have the following already:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     mag_mod = protocol.load_module('magnetic module', '1')
@@ -379,7 +379,7 @@ For the purposes of this section, assume we have the following already:
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     tc_mod = protocol.load_module('Thermocycler Module')

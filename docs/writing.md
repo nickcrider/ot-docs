@@ -203,7 +203,7 @@ by doing
 
 ```python
 from opentrons import simulate
-protocol = simulate.get_protocol_api('{! apilevel.txt !}')
+protocol = simulate.get_protocol_api('{! version_info/apilevel.txt !}')
 p300 = protocol.load_instrument('p300_single', 'right')
 # ...
 ```

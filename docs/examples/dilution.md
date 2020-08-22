@@ -6,7 +6,7 @@ dilutes 8 samples from the reservoir across the 8 columns of the plate.
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     plate = protocol.load_labware('corning_96_wellplate_360ul_flat', 1)

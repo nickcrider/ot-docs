@@ -40,7 +40,7 @@ your protocol's metadata:
 
 ```python
 import opentrons.execute
-protocol = opentrons.execute.get_protocol_api('{! apilevel.txt !}')
+protocol = opentrons.execute.get_protocol_api('{! version_info/apilevel.txt !}')
 protocol.home()
 ```
 
@@ -91,7 +91,7 @@ from opentrons import protocol_api
 def run(protocol: protocol_apiProtocolContext):
     # the contents of your protocol are here...
 
-protocol = opentrons.execute.get_protocol_api('{! apilevel.txt !}')
+protocol = opentrons.execute.get_protocol_api('{! version_info/apilevel.txt !}')
 run(protocol)  # your protocol will now run
 ```
 

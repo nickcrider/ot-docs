@@ -96,7 +96,7 @@ bottom right, see the diagram below for further explanation.
     Examples in this section expect the following:
 
     ``` python
-    metadata = {'apiLevel': '{! apilevel.txt !}'}
+    metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
     def run(protocol):
 
@@ -318,7 +318,7 @@ For example:
 ```python
 from opentrons import types
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol):
      plate = protocol.load_labware(

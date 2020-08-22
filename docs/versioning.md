@@ -51,7 +51,7 @@ Python protocol. This is done in the `metadata` block, using the key
 from opentrons import protocol_api
 
 metadata = {
-    'apiLevel': '{! apilevel.txt !}',
+    'apiLevel': '{! version_info/apilevel.txt !}',
     'author': 'A. Biologist'}
 
 def run(protocol: protocol_apiProtocolContext):

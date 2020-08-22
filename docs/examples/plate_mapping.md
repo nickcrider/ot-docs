@@ -6,7 +6,7 @@ wells and automatically refill the tip volume when it runs out.
 ```python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     plate = protocol.load_labware('corning_96_wellplate_360ul_flat', 1)

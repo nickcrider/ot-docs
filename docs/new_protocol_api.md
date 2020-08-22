@@ -3,7 +3,7 @@
  
   
 <span id="protocol-api-reference"></span><h1 id="index--page-root">API Version 2 Reference<a class="headerlink" href="#index--page-root" title="Permalink to this headline">¶</a></h1>
-
+<em>Version: {! version_info/build.txt !}</em>
 <span id="protocols-and-instruments"></span><span id="protocol-api-protocols-and-instruments"></span><h2 id="module-opentrons.protocol_api.contexts">Protocols and Instruments<a class="headerlink" href="#module-opentrons.protocol_api.contexts" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="opentrons.protocol_api.contexts.ProtocolContext">

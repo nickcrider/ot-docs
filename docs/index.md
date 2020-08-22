@@ -81,7 +81,7 @@ metadata = {
     'protocolName': 'My Protocol',
     'author': 'Name <email@address.com>',
     'description': 'Simple protocol to get started using OT2',
-    'apiLevel': '{! apilevel.txt !}'
+    'apiLevel': '{! version_info/apilevel.txt !}'
 }
 
 # protocol run function. the part after the colon lets your editor know
@@ -140,7 +140,7 @@ defined in code like this:
 ``` python
 from opentrons import protocol_api
 
-metadata = {'apiLevel': '{! apilevel.txt !}'}
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
 def run(protocol: protocol_apiProtocolContext):
     pass
