@@ -22,5 +22,5 @@ update-versions:
 	@opentrons_execute --version > $(version_dir)/build.txt
 
 .PHONY: publish
-serve: update-versions
+publish: update-versions
 	mkdocs gh-deploy --force
