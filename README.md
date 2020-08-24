@@ -12,6 +12,10 @@ This has some neat advantages, including:
 - Lowers the bar to contributing/changing the docs
 - Modern tools encorage user interaction
 
+# Contributing
+
+We love user contributions! See the [instructions](CONTRIBUTING.md) on how to submit your changes to the docs. While not strictly required, you'll probably want to follow the instructions below to check your work locally before exposing it to the rest of the world.
+
 # Setup
 
 Just like the [Opentrons Monorepo](https://github.com/Opentrons/opentrons/blob/edge/CONTRIBUTING.md#environment-and-repository), you'll need `git`, `pipenv`, and `make` installed. Once you've gotten that taken care of, you can clone the repo, use `make` to install the dependencies, and then run the development server:
