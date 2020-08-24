@@ -10,6 +10,7 @@ version_dir = version_info
 setup:
 	$(pipenv) sync $(pipenv_opts)
 	$(pipenv) run pip freeze
+	mkdir $(version_dir)
 
 .PHONY: serve
 serve: update-versions
@@ -18,8 +19,12 @@ serve: update-versions
 
 .PHONY: update-versions
 update-versions:
+	@echo "Updating version include files"
 	@$(python) -c "from opentrons.protocol_api import MAX_SUPPORTED_VERSION as v; print(v)" > $(version_dir)/apilevel.txt
 	@opentrons_execute --version > $(version_dir)/build.txt
+	@cd $(version_dir)
+	@echo "Opentrons API Level: $(shell cat $(version_dir)/apilevel.txt)"
+	@echo "Opentrons Version/Release: $(shell cat $(version_dir)/build.txt)"
 
 .PHONY: publish
 publish: update-versions
