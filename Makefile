@@ -20,3 +20,7 @@ serve: update-versions
 update-versions:
 	@$(python) -c "from opentrons.protocol_api import MAX_SUPPORTED_VERSION as v; print(v)" > $(version_dir)/apilevel.txt
 	@opentrons_execute --version > $(version_dir)/build.txt
+
+.PHONY: publish
+serve: update-versions
+	mkdocs gh-deploy --force
