@@ -6,6 +6,7 @@ pip := $(pipenv) run pip
 
 version_dir = version_info
 
+
 .PHONY: setup
 setup:
 	$(pipenv) sync $(pipenv_opts)
@@ -18,13 +19,24 @@ serve: update-versions
 	mkdocs serve
 
 .PHONY: update-versions
-update-versions:
+update-versions: version_info/apilevel.txt version_info/build.txt
 	@echo "Updating version include files"
-	@$(python) -c "from opentrons.protocol_api import MAX_SUPPORTED_VERSION as v; print(v)" > $(version_dir)/apilevel.txt
-	@$(python) -c "from opentrons import __version__ as v; print(v)" $(version_dir)/build.txt
-	@echo "Opentrons API Level: $(shell cat $(version_dir)/apilevel.txt)"
-	@echo "Opentrons Version/Release: $(shell cat $(version_dir)/build.txt)"
+	@echo "Opentrons API Level: $(shell cat version_info/apilevel.txt)"
+	@echo "Opentrons Release/Version: $(shell cat version_info/build.txt)"
 
 .PHONY: publish
 publish: update-versions
 	mkdocs gh-deploy --force
+
+version_info/apilevel.txt: version_info/
+	@$(python) -c "from opentrons.protocol_api import MAX_SUPPORTED_VERSION as v; print(v)" > version_info/apilevel.txt
+	
+
+version_info/build.txt: version_info/
+	@$(python) -c "from opentrons import __version__ as v; print(v)" > version_info/build.txt
+
+version_info/:
+	mkdir version_info
+
+.PHONY: clean
+	rm -rf version_info
