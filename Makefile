@@ -16,7 +16,7 @@ setup:
 .PHONY: serve
 serve: update-versions
 	@echo "Running dev server. Press Ctrl+C to exit!"
-	mkdocs serve
+	@$(python) -m mkdocs serve
 
 .PHONY: update-versions
 update-versions: version_info/apilevel.txt version_info/build.txt
@@ -26,7 +26,7 @@ update-versions: version_info/apilevel.txt version_info/build.txt
 
 .PHONY: publish
 publish: update-versions
-	mkdocs gh-deploy --force
+	@$(python) -m mkdocs gh-deploy --force
 
 version_info/apilevel.txt: version_info/
 	@$(python) -c "from opentrons.protocol_api import MAX_SUPPORTED_VERSION as v; print(v)" > version_info/apilevel.txt
