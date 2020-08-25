@@ -10,10 +10,10 @@ build = str(build)
 api_level = str(api_level)
 
 with open( version_dir + 'build.txt', 'w' ) as f:
-    f.write(str(build))
+    f.write(build)
 
 
 with open( version_dir + 'apilevel.txt', 'w' ) as f:
-    f.write(str(api_level))
+    f.write(api_level)
 
 print(f'Versions updated! Build: {build} API Level: {api_level}')
