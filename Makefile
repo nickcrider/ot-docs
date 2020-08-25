@@ -12,6 +12,8 @@ setup:
 	$(pipenv) sync $(pipenv_opts)
 	$(pipenv) run pip freeze
 	mkdir $(version_dir)
+	# this avoids printing a bunch of migrating container statements the first time
+	@$(python) -c "from opentrons import __version__ as v"
 
 .PHONY: serve
 serve: update-versions
@@ -39,4 +41,5 @@ version_info/:
 	mkdir version_info
 
 .PHONY: clean
+clean:
 	rm -rf version_info
