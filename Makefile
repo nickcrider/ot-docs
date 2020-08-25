@@ -12,8 +12,6 @@ setup:
 	$(pipenv) sync $(pipenv_opts)
 	$(pipenv) run pip freeze
 	mkdir $(version_dir)
-	# this avoids printing a bunch of migrating container statements the first time
-	@$(python) -c "from opentrons import __version__ as v"
 
 .PHONY: serve
 serve: update-versions
@@ -22,7 +20,7 @@ serve: update-versions
 
 .PHONY: update-versions
 update-versions: version_info/apilevel.txt version_info/build.txt
-	@echo "Updating version include files"
+	@echo "Checking version include files"
 	@echo "Opentrons API Level: $(shell cat version_info/apilevel.txt)"
 	@echo "Opentrons Release/Version: $(shell cat version_info/build.txt)"
 
@@ -30,12 +28,8 @@ update-versions: version_info/apilevel.txt version_info/build.txt
 publish: update-versions
 	@$(python) -m mkdocs gh-deploy --force
 
-version_info/apilevel.txt: version_info/
-	@$(python) -c "from opentrons.protocol_api import MAX_SUPPORTED_VERSION as v; print(v)" > version_info/apilevel.txt
-	
-
-version_info/build.txt: version_info/
-	@$(python) -c "from opentrons import __version__ as v; print(v)" > version_info/build.txt
+version_info/apilevel.txt version_info/build.txt: version_info/
+	@$(python) ot-versions.py
 
 version_info/:
 	mkdir version_info
