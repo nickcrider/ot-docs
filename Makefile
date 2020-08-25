@@ -22,7 +22,6 @@ update-versions:
 	@echo "Updating version include files"
 	@$(python) -c "from opentrons.protocol_api import MAX_SUPPORTED_VERSION as v; print(v)" > $(version_dir)/apilevel.txt
 	@$(python) -c "from opentrons import __version__ as v; print(v)" $(version_dir)/build.txt
-	@cd $(version_dir)
 	@echo "Opentrons API Level: $(shell cat $(version_dir)/apilevel.txt)"
 	@echo "Opentrons Version/Release: $(shell cat $(version_dir)/build.txt)"
 
