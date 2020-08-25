@@ -102,7 +102,7 @@ pip install opentrons
 ```
 
 You should see some output that ends with
-`Successfully installed opentrons-|release|`
+`Successfully installed opentrons-{! version_info/build.txt !}`
 
 #### Jupyter Installation
 
