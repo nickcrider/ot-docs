@@ -6,8 +6,7 @@ through the Opentrons App. Perhaps it requires user input; perhaps it
 needs to do a lot of things it cannot do when being simulated. There are
 two ways to run a protocol on the OT-2 without using the Opentrons App.
 
-Jupyter Notebook
-----------------
+## Jupyter Notebook
 
 The OT-2 runs a Jupyter Notebook server that you can connect to with
 your web browser. This is a convenient environment in which to write and

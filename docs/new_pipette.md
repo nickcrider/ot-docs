@@ -1,20 +1,16 @@
-Pipettes
-========
+# Using Pipettes
 
 When writing a protocol, you must inform the Protocol API about the
 pipettes you will be using on your OT-2. The Protocol API then creates
 software objects called `InstrumentContext`, that represent the attached pipettes.
 
 Pipettes are loaded into a specific mount (`'left'` or `'right'`) on the
-OT-2 using the function
-`ProtocolContext.load_instrument()`
-from the `ProtocolContext` class.
-This will return an `InstrumentContext` object. See [Building Block Commands](new_atomic_commands.md) and [Complex Commands](new_complex_commands.md) for
-liquid handling commands from the
+OT-2 using the function `ProtocolContext.load_instrument()` from the `ProtocolContext` class.
+This will return an `InstrumentContext` object. See [Building Block Commands](new_atomic_commands.md)
+ and [Complex Commands](new_complex_commands.md) for liquid handling commands from the
 `InstrumentContext` class.
 
-Loading A Pipette
------------------
+## Loading A Pipette
 
 Pipettes are specified in a protocol using the method
 `ProtocolContext.load_instrument()`.
@@ -38,13 +34,33 @@ def run(protocol: protocol_apiProtocolContext):
 
 _New in version 2.0_
 
-!!! Note
+!!! Caution
     When you load a pipette in a protocol, you inform the OT-2 that you want
     the specified pipette to be present. Even if you do not use the pipette
     anywhere else in your protocol, the Opentrons App and the OT-2 will not
     let your protocol proceed until all pipettes loaded with
     `load_instrument` are attached to the OT-2.
 
+## Pipette Models
+
+This table lists the model names, which are passed to
+`load_instrument()`,
+for each model of pipette sold by Opentrons.
+
+| Pipette           | Range         | Model Name            |
+| ----------------- | ------------- | --------------------- |
+| P20 Single GEN2   | 1 - 20 µL     | `'p20_single_gen2'`   |
+| P300 Single GEN2  | 20 - 300 µL   | `'p300_single_gen2'`  |
+| P1000 Single GEN2 | 100 - 1000 µL | `'p1000_single_gen2'` |
+| P300 Multi GEN2   | 20-300 µL     | `'p300_multi_gen2'`   |
+| P20 Multi GEN2    | 1-20 µL       | `'p20_multi_gen2'`    |
+| P10 Single        | 1 - 10 µL     | `'p10_single'`        |
+| P10 Multi         | 1 - 10 µL     | `'p10_multi'`         |
+| P50 Single        | 5 - 50 µL     | `'p50_single'`        |
+| P50 Multi         | 5 - 50 µL     | `'p50_multi'`         |
+| P300 Single       | 30 - 300 µL   | `'p300_single'`       |
+| P300 Multi        | 30 - 300 µL   | `'p300_multi'`        |
+| P1000 Single      | 100 - 1000 µL | `'p1000_single'`      |
 
 ------------------------------------------------------------------------
 
@@ -55,8 +71,7 @@ single and multi-channel pipettes, commands treat the *backmost channel*
 (furthest from the door) of a multi-channel pipette as the location of
 the pipette. Location arguments to building block and advanced commands
 are specified for the backmost channel. This also means that offset
-changes (such as `Well.top()` or
-`Well.bottom()`) can be applied to the
+changes (such as `Well.top()` or `Well.bottom()`) can be applied to the
 single specified well, and each channels of the pipette will be at the
 same position relative to the well that it is over.
 
@@ -96,6 +111,7 @@ def run(protocol: protocol_apiProtocolContext):
     # pipette at the top of their respective wells
     right.dispense(300, plate['A3'].top())
 ```
+### Using Multi-Channel Pipettes
 
 In general, you should specify wells in the first row of a labware when
 you are using multi-channel pipettes. One common exception to this rule
@@ -134,59 +150,9 @@ def run(protocol: protocol_apiProtocolContext):
 This pattern of access applies to both building block commands and
 advanced commands.
 
-### Pipette Models
-
-This table lists the model names, which are passed to
-`load_instrument()`,
-for each model of pipette sold by Opentrons.
-
-| Pipette     | Range                    |    Model Name           |
-| ------------|------------------------| ----------------------- |
-| P20 Single GEN2 | 1 - 20 µL         |  `'p20_single_gen2'` |
-| P300 Single GEN2 | 20 - 300 µL |       `'p300_single_gen2'` |
-| P1000 Single GEN2 | 100 - 1000 µL |    `'p1000_single_gen2'` |
-| P300 Multi GEN2 | 20-300 µL     |      `'p300_multi_gen2'` |
-| P20 Multi GEN2 | 1-20 µL       |      `'p20_multi_gen2'` |
-| P10 Single | 1 - 10 µL          |      `'p10_single'` |
-| P10 Multi | 1 - 10 µL           |      `'p10_multi'` |
-| P50 Single | 5 - 50 µL          |      `'p50_single'` |
-| P50 Multi | 5 - 50 µL           |      `'p50_multi'` |
-| P300 Single | 30 - 300 µL      |      `'p300_single'` |
-| P300 Multi | 30 - 300 µL         |     `'p300_multi'` |
-| P1000 Single | 100 - 1000 µL      |    `'p1000_single'` |
 
 
-### GEN2 Pipette Backward Compatibility
-
-GEN2 pipettes have different volume ranges than GEN1 pipettes. However,
-each GEN2 pipette covers one or two GEN1 pipette volume ranges. For
-instance, with a range of 1 - 20 µL, the P20 Single GEN2 covers the P10
-Single GEN1 (1 - 10 µL). If your protocol specifies a GEN1 pipette but
-you have a GEN2 pipette attached to your OT-2 with a compatible volume
-range, you can still run your protocol. The OT-2 will consider the GEN2
-pipette to have the same minimum volume as the GEN1 pipette, so any
-advanced commands have the same behavior as before.
-
-Specifically, the P20 GEN2s (single and multi) cover the entire P10 GEN1
-range; the P300 Single GEN2 covers the entire P300 Single GEN1 range;
-and the P1000 Single GEN2 covers the entire P1000 Single GEN1 range.
-
-If you have a P50 Single specified in your protocol, there is no
-automatic backward compatibility. If you want to use a GEN2 Pipette, you
-must change your protocol to load either a P300 Single GEN2 (if you are
-using volumes between 20 and 50 µL) or a P20 Single GEN2 (if you are
-using volumes below 20 µL).
-
-If your protocol specifies a pipette and you attach a compatible
-pipette, the protocol will run, and the pipette will act the same as the
-pipette specified in your protocol - altering parameters like its
-minimum volume if necessary.
-
-For instance, if your protocol specifies a P300 Multi, and you connect a
-P300 Multi GEN2, the pipette will act like a P300 Multi - it will set
-its minimum volume to 30 µL.
-
-### Adding Tip Racks
+## Tip Racks & Tip Tracking
 
 When you load a pipette, you can optionally specify a list of tip racks
 you will use to supply the pipette. This is done with the optional
@@ -242,354 +208,3 @@ This is further discussed in [Building Block Commands](new_atomic_commands.md) a
 
 _New in version 2.0_
 
-Modifying Pipette Behaviors
----------------------------
-
-The OT-2 has many default behaviors that are occasionally appropriate to
-change for a particular experiment. This section details those
-behaviors.
-
-### Plunger Flow Rates
-
-Opentrons pipettes aspirate or dispense at different rates. These flow
-rates can be changed on a loaded
-`InstrumentContext` at any time, in
-units of µL/sec by altering
-`InstrumentContext.flow_rate`. This
-has the following attributes:
-
--   `InstrumentContext.flow_rate.aspirate`: The aspirate flow rate, in
-    µL/s
--   `InstrumentContext.flow_rate.dispense`: The dispense flow rate, in
-    µL/s
--   `InstrumentContext.flow_rate.blow_out`: The blow out flow rate, in
-    µL/s
-
-Each of these attributes can be altered without affecting the others.
-
-```python
-from opentrons import protocol_api
-
-metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
-
-def run(protocol: protocol_apiProtocolContext):
-    tiprack = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
-    pipette = protocol.load_instrument(
-        'p300_single', 'right', tip_racks=[tiprack])
-    plate = protocol.load_labware('opentrons_96_tiprack_300ul', 3)
-    pipette.pick_up_tip()
-
-    # Aspirate at the default flowrate of 150 ul/s
-    pipette.aspirate(50, plate['A1'])
-    # Dispense at the default flowrate of 300 ul/s
-    pipette.dispense(50, plate['A1'])
-
-    # Change default aspirate speed to 50ul/s, 1/3 of the default
-    pipette.flow_rate.aspirate = 50
-    # this aspirate will be at 50ul/s
-    pipette.aspirate(50, plate['A1'])
-    # this dispense will be the default 300 ul/s
-    pipette.dispense(50, plate['A1'])
-
-    # Slow down dispense too
-    pipette.flow_rate.dispense = 50
-    # This is still at 50 ul/s
-    pipette.aspirate(50, plate['A1'])
-    # This is now at 50 ul/s as well
-    pipette.dispense(50, plate['A1'])
-
-    # Also slow down the blow out flowrate from its default
-    pipette.flow_rate.blow_out = 100
-    pipette.aspirate(50, plate['A1'])
-    # This will be much slower
-    pipette.blow_out()
-
-    pipette.drop_tip()
-```
-
-`InstrumentContext.speed` offers the
-same functionality, but controlled in units of mm/s of plunger speed.
-This does not have a linear transfer to flow rate and should only be
-used if you have a specific need.
-
-_New in version 2.0_
-
-### Default Positions Within Wells
-
-By default, the OT-2 will aspirate and dispense 1mm above the bottom of
-a well. This may not be suitable for some labware geometries, liquids,
-or experimental protocols. While you can specify the exact location
-within a well in direct calls to
-`InstrumentContext.aspirate()` and
-`.InstrumentContext.dispense()` (see the
-[Specifying Position Within Wells](new_labware.md#specifying-position-within-wells) section), you
-cannot use this method in complex commands like
-`InstrumentContext.transfer()`, and it
-can be cumbersome to specify the position every time.
-
-Instead, you can use the attribute
-`InstrumentContext.well_bottom_clearance` to specify the height above the bottom of a well to either
-aspirate or dispense:
-
-1)  Editing `pipette.well_bottom_clearance.aspirate` changes the height
-    of aspiration
-2)  Editing `pipette.well_bottom_clearance.dispense` changes the height
-    of dispense
-
-Changing these attributes will affect *all* aspirates and dispenses,
-even those executed as part of a transfer.
-
-```python
-from opentrons import protocol_api, types
-
-metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
-
-def run(protocol: protocol_apiProtocolContext):
-    tiprack = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
-    pipette = protocol.load_instrument('p300_single', 'right')
-    plate = protocol.load_labware('opentrons_96_tiprack_300ul', 3)
-    pipette.pick_up_tip()
-
-    # Aspirate 1mm above the bottom of the well
-    pipette.aspirate(50, plate['A1'])
-    # Dispense 1mm above the bottom of the well
-    pipette.dispense(50, plate['A1'])
-
-    # Aspirate 2mm above the bottom of the well
-    pipette.well_bottom_clearance.aspirate = 2
-    pipette.aspirate(50, plate['A1'])
-    # Still dispensing 1mm above the bottom
-    pipette.dispense(50, plate['A1'])
-    pipette.aspirate(50, plate['A1'])
-
-    # Dispense high above the well
-    pipette.well_bottom_clearance.dispense = 10
-    pipette.dispense(50, plate['A1'])
-```
-
-_New in version 2.0_
-
-### Gantry Speed
-
-The OT-2's gantry usually moves as fast as it can given its
-construction; this makes protocol execution faster and saves time.
-However, some experiments or liquids may require slower, gentler
-movements over protocol execution time. In this case, you can alter the
-OT-2 gantry's speed when a specific pipette is moving by setting
-`InstrumentContext.default_speed`.
-This is a value in mm/s that controls the overall speed of the gantry.
-Its default is 400 mm/s.
-
-!!! Warning
-    The default of 400 mm/s was chosen because it is the maximum speed
-    Opentrons knows will work with the gantry. Your specific robot may be
-    able to move faster, but you shouldn't make this value higher than the
-    default without extensive experimentation.
-
-
-```python
-from opentrons import protocol_api, types
-
-metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
-
-def run(protocol: protocol_apiProtocolContext):
-    pipette = protocol.load_instrument('p300_single', 'right')
-    # Move to 50mm above the front left of slot 5, very quickly
-    pipette.move_to(protocol.deck.position_for('5').move(types.Point(z=50)))
-    # Slow down the pipette
-    pipette.default_speed = 100
-    # Move to 50mm above the front left of slot 9, much more slowly
-    pipette.move_to(protocol.deck.position_for('9').move(types.Point(z=50)))
-```
-
-_New in version 2.0_
-
-### Per-Axis Speed Limits
-
-In addition to controlling the overall speed of motions, you can set
-per-axis speed limits for the OT-2's axes. Unlike the overall speed,
-which is controlled per-instrument, axis speed limits take effect for
-both pipettes and all motions. These can be set for the `X`
-(left-and-right gantry motion), `Y` (forward-and-back gantry motion),
-`Z` (left pipette up-and-down motion), and `A` (right pipette
-up-and-down motion) using
-`ProtocolContext.max_speeds`. This
-works like a dictionary, where the keys are axes, assigning to a key
-sets a max speed, and deleting a key or setting it to `None` resets that
-axis's limit to the default:
-
-```python
-metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
-
-def run(protocol):
-    protocol.max_speeds['X'] = 50  # limit x axis to 50 mm/s
-    del protocol.max_speeds['X']  # reset x axis limit
-    protocol.max_speeds['A'] = 10  # limit a axis to 10 mm/s
-    protocol.max_speeds['A'] = None  # reset a axis limit
-```
-
-You cannot set limits for the pipette plunger axes with this mechanism;
-instead, set the flow rates or plunger speeds as described in
-[Plunger Flow Rates](#plunger-flow-rates).
-
-_New in version 2.0_
-
-Defaults
---------
-
-**Head Speed**: 400 mm/s
-
-**Well Bottom Clearances**
-
--   Aspirate default: 1mm above the bottom
--   Dispense default: 1mm above the bottom
-
-**p20\_single\_gen2**
-
--   
-
-    Aspirate Default:
-
-    -   On API Version 2.5 and previous: 3.78 µL/s
-    -   On API Version 2.6 and subsequent: 7.56 µL/s
-
--   
-
-    Dispense Default:
-
-    -   On API Version 2.5 and previous: 3.78 µL/s
-    -   On API Version 2.6 and subsequent: 7.56 µL/s
-
--   
-
-    Blow Out Default:
-
-    -   On API Version 2.5 and previous: 3.78 µL/s
-    -   On API Version 2.6 and subsequent: 7.56 µL/s
-
--   Minimum Volume: 1 µL
--   Maximum Volume: 20 µL
-
-**p300_single_gen2**
-
--   
-
-    Aspirate Default:
-
-    -   On API Version 2.5 and previous: 46.43 µL/s
-    -   On API Version 2.6 and subsequent: 92.86 µL/s
-
--   
-
-    Dispense Default:
-
-    -   On API Version 2.5 and previous: 46.43 µL/s
-    -   On API Version 2.6 and subsequent: 92.86 µL/s
-
--   
-
-    Blow Out Default:
-
-    -   On API Version 2.5 and previous: 46.43 µL/s
-    -   On API Version 2.6 and subsequent: 92.86 µL/s
-
--   Minimum Volume: 20 µL
--   Maximum Volume: 300 µL
-
-**p1000_single_gen2**
-
--   
-
-    Aspirate Default:
-
-    -   On API Version 2.5 and previous: 137.35 µL/s
-    -   On API Version 2.6 and subsequent: 274.7 µL/s
-
--   
-
-    Dispense Default:
-
-    -   On API Version 2.5 and previous: 137.35 µL/s
-    -   On API Version 2.6 and subsequent: 274.7 µL/s
-
--   
-
-    Blow Out Default:
-
-    -   On API Version 2.5 and previous: 137.35 µL/s
-    -   On API Version 2.6 and subsequent: 274.7 µL/s
-
--   Minimum Volume: 100 µL
--   Maximum Volume: 1000 µL
-
-**p20_multi_gen2**
-
--   Aspirate Default: 7.6 µL/s
--   Dispense Default: 7.6 µL/s
--   Blow Out Default: 7.6 µL/s
--   Minimum Volume: 1 µL
--   Maximum Volume: 20 µL
-
-**p300_multi_gen2**
-
--   Aspirate Default: 94 µL/s
--   Dispense Default: 94 µL/s
--   Blow Out Default: 94 µL/s
--   Minimum Volume: 20 µL
--   Maximum Volume: 300 µL
-
-**p10_single**
-
--   Aspirate Default: 5 µL/s
--   Dispense Default: 10 µL/s
--   Blow Out Default: 1000 µL/s
--   Minimum Volume: 1 µL
--   Maximum Volume: 10 µL
-
-**p10_multi**
-
--   Aspirate Default: 5 µL/s
--   Dispense Default: 10 µL/s
--   Blow Out Default: 1000 µL/s
--   Minimum Volume: 1 µL
--   Maximum Volume: 10 µL
-
-**p50_single**
-
--   Aspirate Default: 25 µL/s
--   Dispense Default: 50 µL/s
--   Blow Out Default: 1000 µL/s
--   Minimum Volume: 5 µL
--   Maximum Volume: 50 µL
-
-**p50_multi**
-
--   Aspirate Default: 25 µL/s
--   Dispense Default: 50 µL/s
--   Blow Out Default: 1000 µL/s
--   Minimum Volume: 5 µL
--   Maximum Volume: 50 µL
-
-**p300_single**
-
--   Aspirate Default: 150 µL/s
--   Dispense Default: 300 µL/s
--   Blow Out Default: 1000 µL/s
--   Minimum Volume: 30 µL
--   Maximum Volume: 300 µL
-
-**p300_multi**
-
--   Aspirate Default: 150 µL/s
--   Dispense Default: 300 µL/s
--   Blow Out Default: 1000 µL/s
--   Minimum Volume: 30 µL
--   Maximum Volume: 300 µL
-
-**p1000_single**
-
--   Aspirate Default: 500 µL/s
--   Dispense Default: 1000 µL/s
--   Blow Out Default: 1000 µL/s
--   Minimum Volume: 100 µL
--   Maximum Volume: 1000 µL

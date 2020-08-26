@@ -31,13 +31,25 @@ markdown_extensions:
 # see https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs
 nav:
   - Getting Started :
-    - Overview : index.md
-    - Using Python for Protocols : writing.md
-    - Versioning : versioning.md
+    - Introduction : index.md
+    - Some Python Basics : writing.md
+    - Simulating Protocols: simulating.md
+    - Writing Your First Protocol : get_started.md
   - Hardware :
-    - Labware : new_labware.md
-    - Pipettes : new_pipette.md
-    - Modules : new_modules.md
+    - Opentrons Hardware: hardware.md
+    - Pipettes : 
+      - new_pipette.md
+      - pipettes/behaviors.md
+      - pipettes/defaults.md
+    - Labware : 
+      - new_labware.md
+      - labware/accessing.md
+      - labware/positioning.md
+    - Modules :
+      - new_modules.md
+      - modules/temperature.md
+      - modules/magnet.md
+      - modules/thermocycler.md
   - Using the API:
     - Building Block Commands : new_atomic_commands.md
     - Complex Commands : new_complex_commands.md
@@ -56,5 +68,6 @@ nav:
     - Advanced Control : new_advanced_running.md
   - API Reference : 
     - API Version 2 Reference: new_protocol_api.md
+    - Versioning : versioning.md
 
 repo_url: https://github.com/nickcrider/ot-docs
