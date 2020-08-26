@@ -1,6 +1,6 @@
 # Specifying Position Within Wells
 
-The functions listed above (in the [Accessing Wells in Labware](new_labware.md#accessing-wells-in-labware) section) return objects (or lists, lists of lists,
+The functions listed in the [Accessing Wells in Labware](accessing.md) section return objects (or lists, lists of lists,
 dictionaries, or dictionaries of lists of objects) representing wells.
 These are `opentrons.protocol_api.labware.Well` objects. `Well`
 objects have some useful methods on them, which allow you to more
@@ -10,7 +10,7 @@ given well.
 Each of these methods returns an object called a
 `opentrons.types.Location`, which
 encapsulates a position in deck coordinates (see
-[Deck Coordinates](new_protocol_api.md#deck-coordinates)) and a well
+[Deck Coordinates](../new_protocol_api.md#deck-coordinates)) and a well
 with which it is associated. This lets you further manipulate the
 positions returned by these methods. All
 `InstrumentContext` methods that
@@ -22,7 +22,7 @@ involve positions accept these `Location` objects.
 
 The method `Well.top()` returns a
 position at the top center of the well. This is a good position to use
-for [Blow Out](new_atomic_commands.md#blow-out) or any other operation
+for [Blow Out](../new_atomic_commands.md#blow-out) or any other operation
 where you don't want to be contacting the liquid. In addition,
 `Well.top()` takes an optional argument
 `z`, which is a distance in mm to move relative to the top vertically
@@ -62,10 +62,10 @@ plate['A1'].bottom(z=-1) # This is 1mm below the bottom center of the well.
 
 !!! Note
     If you are using this to change the position at which the robot does
-    [Aspirate](new_atomic_commands.md#aspirate) or
-    [Dispense](new_atomic_commands.md#dispense) throughout the protocol,
+    [Aspirate](../new_atomic_commands.md#aspirate) or
+    [Dispense](../new_atomic_commands.md#dispense) throughout the protocol,
     consider setting the default aspirate or dispense offset with
-    `InstrumentContext.well_bottom_clearance()` (see [Default Positions Within Wells](new_pipette.md#default-positions-within-wells)).
+    `InstrumentContext.well_bottom_clearance()` (see [Default Positions Within Wells](positioning.md)).
 
 
 _New in version 2.0_

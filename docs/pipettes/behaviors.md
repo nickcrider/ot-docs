@@ -70,7 +70,7 @@ or experimental protocols. While you can specify the exact location
 within a well in direct calls to
 `InstrumentContext.aspirate()` and
 `.InstrumentContext.dispense()` (see the
-[Specifying Position Within Wells](new_labware.md#specifying-position-within-wells) section), you
+[Specifying Position Within Wells](../labware/positioning.md) section), you
 cannot use this method in complex commands like
 `InstrumentContext.transfer()`, and it
 can be cumbersome to specify the position every time.

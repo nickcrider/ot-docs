@@ -33,7 +33,9 @@ nav:
   - Getting Started :
     - Introduction : index.md
     - Some Python Basics : writing.md
-    - Simulating Protocols: simulating.md
+    - Simulating Protocols: 
+      - simulating.md
+      - jupyter.md
     - Writing Your First Protocol : get_started.md
   - Hardware :
     - Opentrons Hardware: hardware.md
@@ -50,9 +52,18 @@ nav:
       - modules/temperature.md
       - modules/magnet.md
       - modules/thermocycler.md
-  - Using the API:
-    - Building Block Commands : new_atomic_commands.md
-    - Complex Commands : new_complex_commands.md
+  - Liquid Handling :
+    - Using the API : using_the_api.md
+    - Building Block Commands : 
+      - new_atomic_commands.md
+      - building_block/tip_handling.md
+      - building_block/liquid_control.md
+      - building_block/utility.md
+    - Complex Commands : 
+      - new_complex_commands.md
+      - complex/transfer.md
+      - complex/distribute_consolidate.md
+      - complex/shared_parameters.md
   - Examples :
     - Introduction: new_examples.md 
     - Liquid Handling : 

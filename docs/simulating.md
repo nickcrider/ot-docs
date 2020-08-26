@@ -1,18 +1,13 @@
-# Simulating Protocols
+# Simulating on the Commnd Line
 
 Simluating protocols requires the `opentrons` package installed.
 The best way to do that is to get it from Python's
-package manager, `pip`. The exact method of installation is
-slightly different depending on whether you use Jupyter on your computer or not.
+package manager, `pip`.
 
-!!! Note
-    you do not need to do this if you want to use the 
-    [Robot's Jupyer Notebook](new_advanced_running.md#jupyter-notebook),
-    you only need to use `pip` for your locally-installed notebook.
 
 ## Installation
 
-First, install Python 3.7.6 ([Windows
+First, you'll need to install install Python 3.7.6 ([Windows
 x64](https://www.python.org/ftp/python/3.7.6/python-3.7.6-amd64.exe),
 [Windows x86](https://www.python.org/ftp/python/3.7.6/python-3.7.6.exe),
 [OS X](https://www.python.org/ftp/python/3.7.6/python-3.7.6-macosx10.6.pkg))
@@ -62,19 +57,6 @@ package](https://pypi.org/project/opentrons/) using `pip`:
 You should see some output that ends with
 `Successfully installed opentrons-{! version_info/build.txt !}`. 
 If you don't, you may need to [install `pip`](https://pip.pypa.io/en/stable/installing/).
-
-### Jupyter Installation
-
-To install the Opentrons package into your Jupyter Notebook, you 
-must make sure that you install the `opentrons` package for
-whichever kernel and virtual environment the notebook is using. A
-generally good way to do this is
-
-```python
-
-import sys
-!{sys.executable} -m pip install opentrons
-```
 
 ## Using `opentrons_simulate`
 
@@ -156,62 +138,3 @@ place to store and read configuration and changes to its internal data.
 This location is `~/.opentrons` on Linux or OSX and
 `C:\Users\%USERNAME%\.opentrons` on Windows.
 
-## Using the Simluator in Jupyter or the Python Shell
-
-The Opentrons Python package also provides an entrypoint to use the
-Opentrons simulation package from other Python contexts such as an
-interactive prompt or Jupyter. To simulate a protocol in Python, open a
-file containing a protocol and pass it to
-`opentrons.simulate.simulate`:
-
-``` python
-from opentrons.simulate import simulate, format_runlog
-# read the file
-protocol_file = open('/path/to/protocol.py')
-# simulate() the protocol, keeping the runlog
-runlog, _bundle = simulate(protocol_file)
-# print the runlog
-print(format_runlog(runlog))
-```
-
-The `opentrons.simulate.simulate`
-method does the work of simulating the protocol and returns the run log,
-which is a list of structured dictionaries.
-`opentrons.simulate.format_runlog`
-turns that list of dictionaries into a human readable string, which is
-then printed out.
-
-## Using Jupyter
-
-In your Jupyter notebook, you can also use the Python Protocol API simulator
-to simulate your cell like this:
-
-```python
-from opentrons import simulate
-protocol = simulate.get_protocol_api('{! version_info/apilevel.txt !}')
-p300 = protocol.load_instrument('p300_single', 'right')
-# the rest of your code goes here...
-```
-
-The `protocol` object, which is an instance of
-`ProtocolContext`, is the same thing
-that gets passed to your protocol's `run` function, but set to simulate
-rather than control an OT-2. You can call all your protocol's functions
-on that object.
-
-If you have a full protocol, wrapped inside a `run` function, defined in
-a Jupyter cell you can also use `opentrons.simulate.simulate` as
-described above to simulate the protocol.
-
-These instructions also work on the OT-2's Jupyter notebook.
-
-
-
-Robot's Jupyter Notebook
-------------------------
-
-Your OT-2 also has a Jupyter notebook, which you can use to develop and
-execute protocols. For more information on how to execute protocols
-using the OT-2's Jupyter notebook, please see
-[Advanced Control](new_advanced_running.md). To simulate protocols
-on the OT-2's Jupyter notebook, use the instructions above.

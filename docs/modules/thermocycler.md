@@ -61,7 +61,7 @@ _New in version 2.0_
 
 You can control when a lid temperature is set. It is recommended that
 you set the lid temperature before executing a Thermocycler profile (see
-[Thermocycler Profiles](new_modules.md#thermocycler-profiles)). The range of the
+[Thermocycler Profiles](#thermocycler-profiles)). The range of the
 Thermocycler lid is 37 °C to 110 °C.
 
 ### Set Lid Temperature
@@ -189,7 +189,7 @@ tc_mod.execute_profile(steps=profile, repetitions=100, block_max_volume=30)
 
 !!! Note
     Temperature profiles only control the temperature of the
-    [block](new_modules.md#block) in the Thermocycler. You should set a lid
+    [block](#block) in the Thermocycler. You should set a lid
     temperature before executing the profile using
     `ThermocyclerContext.set_lid_temperature()`.
 
