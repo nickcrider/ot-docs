@@ -1,4 +1,4 @@
-# Simulating on the Commnd Line
+# Simulating on the Command Line
 
 Simluating protocols requires the `opentrons` package installed.
 The best way to do that is to get it from Python's
@@ -137,4 +137,3 @@ The Opentrons Python package uses a folder in your user directory as a
 place to store and read configuration and changes to its internal data.
 This location is `~/.opentrons` on Linux or OSX and
 `C:\Users\%USERNAME%\.opentrons` on Windows.
-

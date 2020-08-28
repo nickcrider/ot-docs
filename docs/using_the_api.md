@@ -3,8 +3,10 @@
 Now that you're familiar with the basic structure of protocols, 
 we can start to do more than just move 100 uL from 
 `'A1` to `'B1'`. The liquid handling commands in the API are 
-broken into two categories: Building Block Commands and Complex 
-Commands.
+broken into two categories: 
+
+- [Building Block Commands](new_atomic_commands.md), and
+- [Complex Commands](new_complex_commands.md)
 
 ## Building Block Commands
 
@@ -14,12 +16,12 @@ perform on the robot (generally one movement, like `aspirate()` and
 to create more complex liquid handling patterns. For example:
 
 ``` python
-left_pipette.pick_up_tip()
-left_pipette.aspirate(300, plate['A1'])
-left_pipette.dispense(100, plate['B2'])
-left_pipette.dispense(100, plate['B3'])
-left_pipette.dispense(100, plate['B4'])
-left_pipette.drop_tip()
+pipette.pick_up_tip()
+pipette.aspirate(300, plate['A1'])
+pipette.dispense(100, plate['B2'])
+pipette.dispense(100, plate['B3'])
+pipette.dispense(100, plate['B4'])
+pipette.drop_tip()
 ```
 ## Complex Commands
 
@@ -30,7 +32,8 @@ groups of wells and repetitive actions. Turning the code segment above
 into something more compact:
 
 ```python
-left_pipette.transfer(100, plate['A1'], [plate['B2'], plate['B3'], plate['B4']] )
+pipette.transfer(100, plate['A1'], 
+                     [plate['B2'], plate['B3'], plate['B4']])
 ```
 
 ## Choosing Which Command Set to Use
@@ -47,5 +50,15 @@ like dropping the tip in the trash when done, rather than returining it to the b
 or some other place. So if those defaults don't work for you, it's easy to use the 
 power of Python to define your own `my_transfer()` that does exactly what you want!
 
+## Examples
 
+To get an idea of the differences between the Building Block Comamands and the 
+Complex Commands, see these examples of common liquid handling tecniques:
 
+- [Basic Transfer](examples/basic_transfer.md)
+- [Dilution](examples/dilution.md)
+- [Loops](examples/loops.md)
+- [Multiple Air Gaps](examples/multiple_air_gaps.md)
+- [Plate Mapping](examples/plate_mapping.md)
+
+Where appropriate, these example protocols compare and contrast the two command sets.

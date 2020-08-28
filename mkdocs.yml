@@ -5,8 +5,8 @@ theme:
   logo: assets/opentrons_logo_drop.png
   palette:
     scheme: preference
-    primary: blue grey
-    accent: indigo
+    primary: blue
+    accent: light blue
   features:
     - tabs
   icon:
@@ -16,6 +16,7 @@ extra:
   disqus: ot-docs
 
 markdown_extensions:
+- attr_list
 - pymdownx.tabbed
 - pymdownx.superfences
 - admonition
@@ -24,6 +25,10 @@ markdown_extensions:
 - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+# enables the custom OT icon but slows rebuild to 1m or so, disable for testing
+      options:
+        custom_icons:
+          - overrides/.icons
 - toc:
     permalink: true
 - markdown_include.include
@@ -35,7 +40,7 @@ nav:
     - Some Python Basics : writing.md
     - Simulating Protocols: 
       - simulating.md
-      - jupyter.md
+      - simulate_with_jupyter.md
     - Writing Your First Protocol : get_started.md
   - Hardware :
     - Opentrons Hardware: hardware.md
@@ -64,19 +69,31 @@ nav:
       - complex/transfer.md
       - complex/distribute_consolidate.md
       - complex/shared_parameters.md
-  - Examples :
-    - Introduction: new_examples.md 
-    - Liquid Handling : 
+    - Examples : 
       - examples/basic_transfer.md
       - examples/dilution.md
       - examples/loops.md
       - examples/multiple_air_gaps.md
       - examples/plate_mapping.md
-    - Data Management:
-      - examples/csv.md
-    - Utilities:
+  - Advanced Usage :
+    - Introduction: new_examples.md 
+    - Tips & Tricks:
       - examples/replace_tips.md
-    - Advanced Control : new_advanced_running.md
+      - examples/is_simulating.md
+      - examples/blink_lights.md
+      - examples/liquid_level.md
+    - Data & Device Management:
+      - examples/ssh.md
+      - examples/scp.md
+      - examples/csv.md
+      - examples/install_module.md
+    - Running Without the App :
+      - new_advanced_running.md
+      - examples/jupyter_notebook.md
+      - examples/command_line.md
+      - examples/calibration.md
+      - examples/integrating.md
+    - Understanding the OT-2 Architecture: examples/architecture.md
   - API Reference : 
     - API Version 2 Reference: new_protocol_api.md
     - Versioning : versioning.md

@@ -1,4 +1,4 @@
-# Replacing Tips During a Run
+# Catching an `OutOfTipsError`
 
 The API's tip tracking logic will raise a `OutOfTipsError` if you try to `pick_up_tip()` and there aren't enough tips remaining in the rack(s) to complete the operation. To prevent this from happening, you'll need to catch the error and pasue the robot so the user can refill the tips.
 

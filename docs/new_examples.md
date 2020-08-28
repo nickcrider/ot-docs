@@ -1,14 +1,29 @@
-Examples
-========
+# Bringing it All Together
 
-All examples in the following sections use a `'corning_96_wellplate_360ul_flat'` ([an
-ANSI standard 96-well
-plate](https://labware.opentrons.com/corning_96_wellplate_360ul_flat))
-in slot 1, and two `'opentrons_96_tiprack_300ul'` ([the Opentrons
-standard 300 µL
-tiprack](https://labware.opentrons.com/opentrons_96_tiprack_300ul)) in
-slots 2 and 3. They also require a P300 Single attached to the right
-mount. Some examples also use a `'usascientific_12_reservoir_22ml'` ([a
-USA Scientific 12-row
-reservoir](https://labware.opentrons.com/usascientific_12_reservoir_22ml))
-in slot 4.
+So now you've seen all of the basics of the API, you are probably 
+wondering how to bring the pieces together to do something more complex. 
+We've got you covered!
+
+The examples in this section start with some tips and tricks for writing 
+advanced protocols, and build up all the way to expert-level usage, like 
+running the robot without the App!
+
+## Tips & Tricks
+
+- Catching an `OutOfTipsError`
+- Blink the OT-2 Lights
+- Impliment your own liquid level tracking
+
+## Data & Device Management
+
+- Setting Up SSH access to the OT-2
+- Using CSV Data in your protocol
+- Installing Python Packages on the OT-2
+- Access the OT-2's Camera
+
+## Advanced Running
+
+- Running the Robot Without the App
+- Understanding the OT-2 Architecture
+- Integrating With Your Own Server
+  

@@ -93,9 +93,8 @@ it will continue to behave the same as we update the Software version.
     The Opentrons software version is different from the Protocol API Version.
     The current versions at the time of writing are:
 
-    |       Opentrons Software       |      Protocol API Version       |
-    | :----------------------------: | :-----------------------------: |
-    | {! version_info/build.txt !} | {! version_info/apilevel.txt !} |
+    **Opentrons Software:** {! version_info/build.txt !}
+    **API Version:** {! version_info/apilevel.txt !}
 
 For more information on Python Protocol API versioning, see the
 [Versioning](versioning.md) page.

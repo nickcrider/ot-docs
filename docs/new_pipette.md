@@ -62,7 +62,7 @@ for each model of pipette sold by Opentrons.
 | P300 Multi        | 30 - 300 µL   | `'p300_multi'`        |
 | P1000 Single      | 100 - 1000 µL | `'p1000_single'`      |
 
-------------------------------------------------------------------------
+## Using Multi-Channel Pipettes
 
 All building block and advanced commands work with both single-channel
 (like `'p20_single_gen2'`) and multi-channel (like `'p20_multi_gen2'`)
@@ -111,7 +111,6 @@ def run(protocol: protocol_apiProtocolContext):
     # pipette at the top of their respective wells
     right.dispense(300, plate['A3'].top())
 ```
-### Using Multi-Channel Pipettes
 
 In general, you should specify wells in the first row of a labware when
 you are using multi-channel pipettes. One common exception to this rule

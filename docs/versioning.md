@@ -1,12 +1,16 @@
-Versioning
-==========
+# Versioning
 
 The OT-2 Python Protocol API has its own versioning system, which is
 separated from the version of the OT-2 software or of the Opentrons App.
-This separation allows you to specify the Protocol Api version your
+This separation allows you to specify the Protocol API version your
 protocol requires without being concerned with what OT-2 software
 versions it will work with, and allows Opentrons to version the Python
 Protocol API based only on changes that affect protocols.
+
+!!! Tip
+    While we increase the maxium availible API Version when add new 
+    features, your protocol will continue to have the same pipetting 
+    performance as long as your protocol's `'apiLevel'` remains the same.
 
 The API is versioned with a major and minor version, expressed like
 this: `major.minor`. For instance, major version 2 and minor version 0
@@ -14,8 +18,7 @@ is written as `2.0`. Versions are not decimal numbers. Major version 2
 and minor version 10 is written as `2.10`, while `2.1` means major
 version 2 and minor version 1.
 
-Major and Minor Version
------------------------
+## Major and Minor Version
 
 The major version of the API is increased whenever there are signficant
 structural or behavioral changes to protocols. For instance, major
@@ -40,8 +43,10 @@ aspirated from wells was now dynamic - some people might not want that
 change appearing suddenly in their well-tested protocol, so we would
 increase the minor version.
 
-Expressing Versions
--------------------
+!!! Note
+    The current API Version at the time of writing is: `{! version_info/apilevel.txt !}`
+
+## Expressing Versions
 
 You must specify the API version you are targeting at the top of your
 Python protocol. This is done in the `metadata` block, using the key
@@ -60,9 +65,10 @@ def run(protocol: protocol_apiProtocolContext):
 
 This key exists alongside the other elements of the metadata.
 
-Version specification is required by the system. If you do not specify
-your target API version, you will not be able to simulate or run your
-protocol.
+!!! Warning
+    Version specification is required by the system. If you do not specify
+    your target API version, you will not be able to simulate or run your
+    protocol.
 
 The version you specify determines the features and behaviors available
 to your protocol. For instance, if Opentrons adds the ability to set the
@@ -86,16 +92,15 @@ def run(protocol: protocol_apiProtocolContext):
 ```
 
 would cause an error, because the `units` argument is not present in API
-version 2.0. This protects you from accidentally using features not
-present in your specified API version, and keeps your protocol portable
-between API versions.
+version 2.0 (or in any version, it's just an example). This protects you 
+from accidentally using features not present in your specified API version, 
+and keeps your protocol portable between API versions.
 
 In general, you should closely consider what features you need in your
 protocol, and keep your specified API level as low as possible. This
 makes your protocol work on a wider range of OT-2 software versions.
 
-Determining What Version Is Available
--------------------------------------
+## Determining What Version Is Available
 
 Since version 3.15.0 of the OT-2 software and Opentrons App, the maximum
 supported API level of your OT-2 is visible in the Information card in
@@ -106,8 +111,7 @@ specify in a protocol. If you upload a protocol that specifies a higher
 API level than the OT-2 software supports, the OT-2 cannot simulate or
 run your protocol.
 
-Determining What Features Are In What Version
----------------------------------------------
+## Determining What Features Are In What Version
 
 As you read the documentation on this site, you will notice that all
 documentation on features, function calls, available properties, and
@@ -117,47 +121,42 @@ protocol's API version. The version statement will look like this:
 
 _New in version 2.0_
 
-API and OT-2 Software Versions
-------------------------------
+## API and OT-2 Software Versions
 
 This table lists the correspondence between Protocol API versions and
 robot software versions.
 
-
 | API Version | Introduced In OT-2 Software |
-| ------------|---------------------------- |
-| 1.0       | 3.0.0                     |
-| 2.0       | 3.14.0                    |
-| 2.1       | 3.15.2                    |
-| 2.2       | 3.16.0                    |
-| 2.3       | 3.17.0                    |
-| 2.4       | 3.17.1                    |
-| 2.5       | 3.19.0                    |
-| 2.6       | 3.20.0                    |
+| ----------- | :-------------------------: |
+| 1.0         | 3.0.0                       |
+| 2.0         | 3.14.0                      |
+| 2.1         | 3.15.2                      |
+| 2.2         | 3.16.0                      |
+| 2.3         | 3.17.0                      |
+| 2.4         | 3.17.1                      |
+| 2.5         | 3.19.0                      |
+| 2.6         | 3.20.0                      |
 
-Changes in API Versions
------------------------
+## Changes in API Versions
 
 ### Version 2.1
 
 -   You can now specify a label when loading labware into a module with
-    the `label` parameter of
-     `ModuleContext.load_labware` just
+    the `label` parameter of `ModuleContext.load_labware()` just
     like you can when loading labware into your protocol with
-    `ProtocolContext.load_labware`.
+    `ProtocolContext.load_labware()`.
 
 ### Version 2.2
 
 -   You should now specify magnetic module engage height using the
     `height_from_base` parameter, which specifies the height of the top
     of the magnet from the base of the labware. For more, see
-    [Engage](new_modules.md#engage).
+    [Engage](modules/magnet.md#engage).
 -   Return tip will now use pre-defined heights from hardware testing.
-    For more information, see `pipette-return-tip`{.interpreted-text
-    role="ref"}.
+    For more information, see [Return Tip](building_block/tip_handling.md#return-tip).
 -   When using the return tip function, tips are no longer added back
     into the tip tracker. For more information, see
-    `pipette-return-tip`{.interpreted-text role="ref"}.
+    see [Return Tip](building_block/tip_handling.md#return-tip).
 
 ### Version 2.3
 
@@ -166,40 +165,31 @@ Changes in API Versions
     and `"temperature module gen2"`, respectively
 -   All pipettes will return tips to tipracks from a higher position to
     avoid possible collisions
--   During a `mix`{.interpreted-text role="ref"}, the pipette will no
+-   During a `mix()`, the pipette will no
     longer move up to clear the liquid in between every dispense and
     following aspirate
 -   You can now access the temperature module's status via the `status`
     property of `ModuleContext.TemperatureModuleContext`
 
-### Version 2.4
+### Version 2.4   
 
--   
+The following improvements were made to the [`touch_tip()`](building_block/liquid_control.md#touch-tip) command:
 
-    The following improvements were made to the [touch\_tip]{.title-ref} command:
-
-    :   -   The speed for [touch\_tip]{.title-ref} can now be lowered
-            down to 1 mm/s
-        -   [touch\_tip]{.title-ref} no longer moves diagonally from the
-            X direction -\> Y direction
-        -   Takes into account geometry of the deck and modules
+- The speed for `touch_tip()` can now be lowered down to 1 mm/s
+- `touch_tip()` no longer moves diagonally from the X direction -\> Y direction
+- Takes into account geometry of the deck and modules
 
 ### Version 2.5
 
--   
+New [Utillity Commands](building_block/utility.md) were added:
 
-    New `new-utility-commands`{.interpreted-text role="ref"} were added:
-
-    :   -   `ProtocolContext.set_rail_lights`{.interpreted-text
-            role="meth"}: turns robot rail lights on or off
-        -   `ProtocolContext.rail_lights_on`{.interpreted-text
-            role="obj"}: describes whether or not the rail lights are on
-        -   `ProtocolContext.door_closed`{.interpreted-text
-            role="obj"}: describes whether the robot door is closed
+-   `ProtocolContext.set_rail_lights()`: turns robot rail lights on or off
+-   `ProtocolContext.rail_lights_on`: describes whether or not the rail lights are on
+-   `ProtocolContext.door_closed`: describes whether the robot door is closed
 
 ### Version 2.6
 
 -   GEN2 Single pipettes now default to flow rates equivalent to 10 mm/s
     plunger speeds - Protocols that manually configure pipette flow
     rates will be unaffected - For a comparison between API Versions,
-    see `defaults`{.interpreted-text role="ref"}
+    see [Defaults](pipettes/defaults.md)

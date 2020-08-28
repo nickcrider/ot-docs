@@ -6,6 +6,7 @@ to hold your reagents, and (optionally) the Openrons Hardware modules that enabl
 additional workflows.
 
 Specifically, you'll learn how the API handles:
+
 - Opentrons Pipettes
 - Labware
 - Opentrons Modules

@@ -33,6 +33,7 @@ These docs currently use:
 - [Highlighted Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/)
 - [Data Tables](https://squidfunk.github.io/mkdocs-material/reference/data-tables/) (Standard GFM syntax)
 - [Icon/Emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)
+- [Attribute List](https://squidfunk.github.io/mkdocs-material/reference/buttons/#attribute-list)
 
 Here's what is considerd [GitHub Flavored Markdown](https://github.github.com/gfm/) vs not:
 
@@ -43,7 +44,16 @@ Here's what is considerd [GitHub Flavored Markdown](https://github.github.com/gf
 | Highlighted Code Blocks |        Yes        |     No      |
 | Data Tables             |        Yes        |     No      |
 | Icon/Emojis             |        No         |     No      |
+| Attribute List          |        No         |     No      |
 
+
+### Buttons
+
+Buttons are enabled with the Attribute List extenstion. The syntax is:
+
+````markdown
+[Link Text](#){: .md-button }
+````
 
 ### `markdown_include` Syntax
 
@@ -79,4 +89,24 @@ metadata = {
     'author': 'A. Biologist'}
 ```
 
+It's currently a [known issue](https://github.com/cmacmackin/markdown-include/issues/11) 
+that `markdown_include` does not support multiple uses on one line.
 
+For example, this usage:
+
+````markdown
+|      Opentrons Software      |      Protocol API Version       |
+| :--------------------------: | :-----------------------------: |
+| {! version_info/build.txt !} | {! version_info/apilevel.txt !} |
+````
+
+Renders Like this:
+
+| Opentrons Software | Protocol API Version |
+| :----------------: | :------------------: |
+|       3.20.0       |                      |
+
+### A note on Emoji
+
+Emoji use is encouraged! The Opentrons Drop Logo is enabled as a custom emoji! 
+Just use `:opentrons-ot-droplet:` in your markdown to try it out!
