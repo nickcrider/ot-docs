@@ -13,16 +13,19 @@ Even if you've never used Python before, we hope you still might have an idea of
 this bit of code is trying to accomplish:
 
 ```python
-plate = protocol.load_labware('corning_96_wellplate_360ul_flat', '2')
-tiprack = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
+metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
-left_pipette = protocol.load_instrument(
-        'p300_single', 'left', tip_racks=[tiprack])
+run(protocol):
+    plate = protocol.load_labware('corning_96_wellplate_360ul_flat', '2')
+    tiprack = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
 
-left_pipette.pick_up_tip()
-left_pipette.aspirate(100, plate['A1'])
-left_pipette.dispense(100, plate['B2'])
-left_pipette.drop_tip()
+    left_pipette = protocol.load_instrument(
+            'p300_single', 'left', tip_racks=[tiprack])
+
+    left_pipette.pick_up_tip()
+    left_pipette.aspirate(100, plate['A1'])
+    left_pipette.dispense(100, plate['B2'])
+    left_pipette.drop_tip()
 ```
 
 If you said "transfer from well `'A1'` to well `'B1'`", read on to learn
