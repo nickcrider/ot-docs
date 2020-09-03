@@ -14,7 +14,7 @@ setup:
 	mkdir $(version_dir)
 
 .PHONY: serve
-serve: update-versions
+serve: update-versions api-ref
 	@echo "Running dev server. Press Ctrl+C to exit!"
 	@$(python) -m mkdocs serve
 
@@ -25,7 +25,7 @@ update-versions: version_info/apilevel.txt version_info/build.txt
 	@echo "Opentrons Release/Version: $(shell cat version_info/build.txt)"
 
 .PHONY: publish
-publish: update-versions
+publish: update-versions api-ref
 	@$(python) -m mkdocs gh-deploy --force
 
 version_info/apilevel.txt version_info/build.txt: version_info/
@@ -37,3 +37,21 @@ version_info/:
 .PHONY: clean
 clean:
 	rm -rf version_info
+
+# Sphinx build configuration options
+
+SPHINXOPTS    ?=
+SPHINXBUILD   ?= $(pipenv) run sphinx-build
+SOURCEDIR     = sphinx
+BUILDDIR      = _build
+
+.PHONY: api-ref
+api-ref: $(BUILDDIR)/html/index.html
+	@echo "getting API Reference"
+
+$(BUILDDIR)/html/index.html:
+	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+
+.PHONY: api-clean
+api-clean:
+	rm -rf $(BUILDDIR)

@@ -7,6 +7,8 @@ name = "pypi"
 mkdocs-material = "*"
 markdown-include = "*"
 opentrons = "*"
+sphinx = "*"
+sphinx-material = "*"
 
 [dev-packages]
 
