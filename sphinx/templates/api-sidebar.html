@@ -1,7 +1,6 @@
 {% set toc_nodes = derender_toc(toc, True, pagename) if display_toc else [] %}
-
   {%- if display_toc and toc_nodes and sidebars and 'localtoc.html' in sidebars %}
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">Table of contents</label>
   {%- endif %}
   <ul class="md-nav__list" data-md-scrollfix="">
     {%- if display_toc and sidebars and 'localtoc.html' in sidebars %}
