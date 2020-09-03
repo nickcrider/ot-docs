@@ -15,7 +15,7 @@ this bit of code is trying to accomplish:
 ```python
 metadata = {'apiLevel': '{! version_info/apilevel.txt !}'}
 
-run(protocol):
+def run(protocol):
     plate = protocol.load_labware('corning_96_wellplate_360ul_flat', '2')
     tiprack = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
 
