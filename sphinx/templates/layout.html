@@ -1,0 +1,12 @@
+<script>
+      document.getElementsByClassName("md-nav md-nav--secondary")[0].innerHTML = `
+      {% include "api-sidebar.html" %}
+      `;
+</script>
+
+<div>
+    <style scoped>
+        {% include 'material.css' %}
+    </style>
+    {% block body %} {% endblock %}
+</div>
