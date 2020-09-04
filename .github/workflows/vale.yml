@@ -2,7 +2,7 @@ name: Vale
 on:
   push:
     branches: 
-      - test-vale
+      - master
 
 jobs:
   prose:
