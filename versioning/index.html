@@ -1,0 +1,1746 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Versioning - Opentrons API Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2094f3">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#versioning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Opentrons API Docs" class="md-header-nav__button md-logo" aria-label="Opentrons API Docs">
+      
+  <img src="../assets/opentrons_logo_drop.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Opentrons API Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Versioning
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/nickcrider/ot-docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href=".." class="md-tabs__link">
+          Getting Started
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../hardware/" class="md-tabs__link">
+          Hardware
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../using_the_api/" class="md-tabs__link">
+          Liquid Handling
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../new_examples/" class="md-tabs__link">
+          Advanced Usage
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../new_protocol_api/" class="md-tabs__link md-tabs__link--active">
+          API Reference
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Opentrons API Docs" class="md-nav__button md-logo" aria-label="Opentrons API Docs">
+      
+  <img src="../assets/opentrons_logo_drop.png" alt="logo">
+
+    </a>
+    Opentrons API Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/nickcrider/ot-docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Getting Started
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon"></span>
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../writing/" title="Some Python Basics" class="md-nav__link">
+      Some Python Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3">
+    
+    <label class="md-nav__link" for="nav-1-3">
+      Simulating Protocols
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Simulating Protocols" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        <span class="md-nav__icon md-icon"></span>
+        Simulating Protocols
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../simulating/" title="Simulating on the Command Line" class="md-nav__link">
+      Simulating on the Command Line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../simulate_with_jupyter/" title="Simulating with Jupyter Notebook" class="md-nav__link">
+      Simulating with Jupyter Notebook
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../get_started/" title="Writing Your First Protocol" class="md-nav__link">
+      Writing Your First Protocol
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Hardware
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Hardware" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hardware/" title="Opentrons Hardware" class="md-nav__link">
+      Opentrons Hardware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Pipettes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Pipettes" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Pipettes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_pipette/" title="Using Pipettes" class="md-nav__link">
+      Using Pipettes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipettes/behaviors/" title="Modifying Pipette Behaviors" class="md-nav__link">
+      Modifying Pipette Behaviors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipettes/defaults/" title="Defaults" class="md-nav__link">
+      Defaults
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Labware
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Labware" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        Labware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_labware/" title="Loading Labware" class="md-nav__link">
+      Loading Labware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../labware/accessing/" title="Accessing Wells in Labware" class="md-nav__link">
+      Accessing Wells in Labware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../labware/positioning/" title="Specifying Position Within Wells" class="md-nav__link">
+      Specifying Position Within Wells
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Modules
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Modules" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        <span class="md-nav__icon md-icon"></span>
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_modules/" title="Hardware Modules" class="md-nav__link">
+      Hardware Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modules/temperature/" title="Temperature Module" class="md-nav__link">
+      Temperature Module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modules/magnet/" title="Magnetic Module" class="md-nav__link">
+      Magnetic Module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modules/thermocycler/" title="Using a Thermocycler Module" class="md-nav__link">
+      Using a Thermocycler Module
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Liquid Handling
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Liquid Handling" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Liquid Handling
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../using_the_api/" title="Using the API" class="md-nav__link">
+      Using the API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Building Block Commands
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Building Block Commands" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Building Block Commands
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_atomic_commands/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_block/tip_handling/" title="Tip Handling" class="md-nav__link">
+      Tip Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_block/liquid_control/" title="Liquid Handling" class="md-nav__link">
+      Liquid Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../building_block/utility/" title="Utility Commands" class="md-nav__link">
+      Utility Commands
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Complex Commands
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Complex Commands" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon"></span>
+        Complex Commands
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_complex_commands/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../complex/transfer/" title="Transfer" class="md-nav__link">
+      Transfer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../complex/distribute_consolidate/" title="Distribute and Consolidate" class="md-nav__link">
+      Distribute and Consolidate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../complex/shared_parameters/" title="Shared Parameters" class="md-nav__link">
+      Shared Parameters
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Examples
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Examples" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/basic_transfer/" title="Basic Transfer" class="md-nav__link">
+      Basic Transfer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/dilution/" title="Dilution" class="md-nav__link">
+      Dilution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/loops/" title="Loops" class="md-nav__link">
+      Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/multiple_air_gaps/" title="Multiple Air Gaps" class="md-nav__link">
+      Multiple Air Gaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/plate_mapping/" title="Plate Mapping" class="md-nav__link">
+      Plate Mapping
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Advanced Usage
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Advanced Usage" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Advanced Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_examples/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Tips & Tricks
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Tips & Tricks" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        <span class="md-nav__icon md-icon"></span>
+        Tips & Tricks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/replace_tips/" title="Catching an `OutOfTipsError`" class="md-nav__link">
+      Catching an `OutOfTipsError`
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/is_simulating/" title="Skipping Simulation" class="md-nav__link">
+      Skipping Simulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/blink_lights/" title="Blink the OT-2 Lights" class="md-nav__link">
+      Blink the OT-2 Lights
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/liquid_level/" title="Implement Liquid Level Tracking" class="md-nav__link">
+      Implement Liquid Level Tracking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Data & Device Management
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Data & Device Management" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        <span class="md-nav__icon md-icon"></span>
+        Data & Device Management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/ssh/" title="Setting Up SSH access to the OT-2" class="md-nav__link">
+      Setting Up SSH access to the OT-2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/scp/" title="Copying files to and from your OT-2 with `scp`" class="md-nav__link">
+      Copying files to and from your OT-2 with `scp`
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/csv/" title="Loading Data from a CSV" class="md-nav__link">
+      Loading Data from a CSV
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/install_module/" title="Installing Python Packages on the OT-2" class="md-nav__link">
+      Installing Python Packages on the OT-2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Running Without the App
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Running Without the App" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        <span class="md-nav__icon md-icon"></span>
+        Running Without the App
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_advanced_running/" title="Running the OT-2 Without the App" class="md-nav__link">
+      Running the OT-2 Without the App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/jupyter_notebook/" title="Using the OT-2's Jupyter Notebook" class="md-nav__link">
+      Using the OT-2's Jupyter Notebook
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/command_line/" title="Using the OT-2's Command Line" class="md-nav__link">
+      Using the OT-2's Command Line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/calibration/" title="Calibration without the App" class="md-nav__link">
+      Calibration without the App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/integrating/" title="Integrating the OT-2 with a Server" class="md-nav__link">
+      Integrating the OT-2 with a Server
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples/architecture/" title="Understanding the OT-2 Architecture" class="md-nav__link">
+      Understanding the OT-2 Architecture
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      API Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../new_protocol_api/" title="API Version 2 Reference" class="md-nav__link">
+      API Version 2 Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Versioning
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Versioning" class="md-nav__link md-nav__link--active">
+      Versioning
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#major-and-minor-version" class="md-nav__link">
+    Major and Minor Version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressing-versions" class="md-nav__link">
+    Expressing Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determining-what-version-is-available" class="md-nav__link">
+    Determining What Version Is Available
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determining-what-features-are-in-what-version" class="md-nav__link">
+    Determining What Features Are In What Version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-and-ot-2-software-versions" class="md-nav__link">
+    API and OT-2 Software Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-in-api-versions" class="md-nav__link">
+    Changes in API Versions
+  </a>
+  
+    <nav class="md-nav" aria-label="Changes in API Versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-21" class="md-nav__link">
+    Version 2.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-22" class="md-nav__link">
+    Version 2.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-23" class="md-nav__link">
+    Version 2.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-24" class="md-nav__link">
+    Version 2.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-25" class="md-nav__link">
+    Version 2.5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-26" class="md-nav__link">
+    Version 2.6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#major-and-minor-version" class="md-nav__link">
+    Major and Minor Version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressing-versions" class="md-nav__link">
+    Expressing Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determining-what-version-is-available" class="md-nav__link">
+    Determining What Version Is Available
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determining-what-features-are-in-what-version" class="md-nav__link">
+    Determining What Features Are In What Version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-and-ot-2-software-versions" class="md-nav__link">
+    API and OT-2 Software Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-in-api-versions" class="md-nav__link">
+    Changes in API Versions
+  </a>
+  
+    <nav class="md-nav" aria-label="Changes in API Versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-21" class="md-nav__link">
+    Version 2.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-22" class="md-nav__link">
+    Version 2.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-23" class="md-nav__link">
+    Version 2.3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-24" class="md-nav__link">
+    Version 2.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-25" class="md-nav__link">
+    Version 2.5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-26" class="md-nav__link">
+    Version 2.6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/nickcrider/ot-docs/edit/master/docs/versioning.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h1>
+<p>The OT-2 Python Protocol API has its own versioning system, which is
+separated from the version of the OT-2 software or of the Opentrons App.
+This separation allows you to specify the Protocol API version your
+protocol requires without being concerned with what OT-2 software
+versions it will work with, and allows Opentrons to version the Python
+Protocol API based only on changes that affect protocols.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>While we increase the maximum available API Version when add new 
+features, your protocol will continue to have the same pipetting 
+performance as long as your protocol's <code>'apiLevel'</code> remains the same.</p>
+</div>
+<p>The API is versioned with a major and minor version, expressed like
+this: <code>major.minor</code>. For instance, major version 2 and minor version 0
+is written as <code>2.0</code>. Versions aren't decimal numbers. Major version 2
+and minor version 10 is written as <code>2.10</code>, while <code>2.1</code> means major
+version 2 and minor version 1.</p>
+<h2 id="major-and-minor-version">Major and Minor Version<a class="headerlink" href="#major-and-minor-version" title="Permanent link">&para;</a></h2>
+<p>The major version of the API is increased whenever there are significant
+structural or behavioral changes to protocols. For instance, major
+version 2 of the API was introduced because protocols must now have a
+<code>run</code> function that takes a <code>protocol</code> argument rather than importing
+the <code>robot</code>, <code>instruments</code>, and <code>labware</code> modules. A similar level of
+structural change would require a major version 3. Another major version
+bump would be if all of the default units switched to nanoliters instead
+of microliters (we won't do this, it's just an example). This major
+behavioral change would also require a major version 3.</p>
+<p>The minor version of the API is increased whenever we add new
+functionality that might change the way a protocol is written, or when
+we want to make a behavior change to an aspect of the API but not the
+whole thing. For instance, if we added support for a new module, added
+an option for specifying volume units in the <code>aspirate</code> and <code>dispense</code>
+functions, or added a way to queue up actions from multiple different
+modules and execute them at the same time, we would increase the minor
+version of the API. Another minor version bump would be if we added
+automatic liquid level tracking, and the position at which the OT-2
+aspirated from wells was now dynamic - some people might not want that
+change appearing suddenly in their well-tested protocol, so we would
+increase the minor version.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current API Version at the time of writing is: <code>2.6</code></p>
+</div>
+<h2 id="expressing-versions">Expressing Versions<a class="headerlink" href="#expressing-versions" title="Permanent link">&para;</a></h2>
+<p>You must specify the API version you are targeting at the top of your
+Python protocol. This is done in the <code>metadata</code> block, using the key
+<code>'apiLevel'</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">opentrons</span> <span class="kn">import</span> <span class="n">protocol_api</span>
+
+<span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;apiLevel&#39;</span><span class="p">:</span> <span class="s1">&#39;2.6&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="s1">&#39;A. Biologist&#39;</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">protocol</span><span class="p">:</span> <span class="n">protocol_apiProtocolContext</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p>This key exists alongside the other elements of the metadata.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Version specification is required by the system. If you don't specify
+your target API version, you won't be able to simulate or run your
+protocol.</p>
+</div>
+<p>The version you specify determines the features and behaviors available
+to your protocol. For instance, if Opentrons adds the ability to set the
+volume units in a call to <code>aspirate</code> in version 2.1, then you must
+specify version 2.1 in your metadata. A protocol like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">opentrons</span> <span class="kn">import</span> <span class="n">protocol_api</span>
+
+<span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;apiLevel&#39;</span><span class="p">:</span> <span class="s1">&#39;2.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;author&#39;</span><span class="p">:</span> <span class="s1">&#39;A. Biologist&#39;</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">protocol</span><span class="p">:</span> <span class="n">protocol_apiProtocolContext</span><span class="p">):</span>
+    <span class="n">tiprack</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">.</span><span class="n">load_labware</span><span class="p">(</span><span class="s1">&#39;opentrons_96_tiprack_300ul&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+    <span class="n">plate</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">.</span><span class="n">load_labware</span><span class="p">(</span><span class="s1">&#39;corning_96_wellplate_380ul&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">.</span><span class="n">load_instrument</span><span class="p">(</span><span class="s1">&#39;p300_single&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">tip_racks</span><span class="o">=</span><span class="p">[</span><span class="n">tiprack</span><span class="p">])</span>
+
+    <span class="n">left</span><span class="o">.</span><span class="n">pick_up_tip</span><span class="p">()</span>
+    <span class="n">left</span><span class="o">.</span><span class="n">aspirate</span><span class="p">(</span><span class="n">volume</span><span class="o">=</span><span class="mi">50000</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="n">plate</span><span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">],</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;nanoliters&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>would cause an error, because the <code>units</code> argument isn't present in API
+version 2.0 (or in any version, it's just an example). This protects you 
+from accidentally using features not present in your specified API version, 
+and keeps your protocol portable between API versions.</p>
+<p>In general, you should closely consider what features you need in your
+protocol, and keep your specified API level as low as possible. This
+makes your protocol work on a wider range of OT-2 software versions.</p>
+<h2 id="determining-what-version-is-available">Determining What Version Is Available<a class="headerlink" href="#determining-what-version-is-available" title="Permanent link">&para;</a></h2>
+<p>Since version 3.15.0 of the OT-2 software and Opentrons App, the maximum
+supported API level of your OT-2 is visible in the Information card in
+the Opentrons App for your OT-2.</p>
+<p>This maximum supported API level is the highest API level you can
+specify in a protocol. If you upload a protocol that specifies a higher
+API level than the OT-2 software supports, the OT-2 can't simulate or
+run your protocol.</p>
+<h2 id="determining-what-features-are-in-what-version">Determining What Features Are In What Version<a class="headerlink" href="#determining-what-features-are-in-what-version" title="Permanent link">&para;</a></h2>
+<p>As you read the documentation on this site, you will notice that all
+documentation on features, function calls, available properties, and
+everything else about the Python Protocol API notes which API version it
+was introduced in. Keep this information in mind when specifying your
+protocol's API version. The version statement will look like this:</p>
+<p><em>New in version 2.0</em></p>
+<h2 id="api-and-ot-2-software-versions">API and OT-2 Software Versions<a class="headerlink" href="#api-and-ot-2-software-versions" title="Permanent link">&para;</a></h2>
+<p>This table lists the correspondence between Protocol API versions and
+robot software versions.</p>
+<table>
+<thead>
+<tr>
+<th>API Version</th>
+<th align="center">Introduced In OT-2 Software</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td align="center">3.0.0</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td align="center">3.14.0</td>
+</tr>
+<tr>
+<td>2.1</td>
+<td align="center">3.15.2</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td align="center">3.16.0</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td align="center">3.17.0</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td align="center">3.17.1</td>
+</tr>
+<tr>
+<td>2.5</td>
+<td align="center">3.19.0</td>
+</tr>
+<tr>
+<td>2.6</td>
+<td align="center">3.20.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="changes-in-api-versions">Changes in API Versions<a class="headerlink" href="#changes-in-api-versions" title="Permanent link">&para;</a></h2>
+<h3 id="version-21">Version 2.1<a class="headerlink" href="#version-21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You can now specify a label when loading labware into a module with
+    the <code>label</code> parameter of <code>ModuleContext.load_labware()</code> just
+    like you can when loading labware into your protocol with
+    <code>ProtocolContext.load_labware()</code>.</li>
+</ul>
+<h3 id="version-22">Version 2.2<a class="headerlink" href="#version-22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You should now specify magnetic module engage height using the
+    <code>height_from_base</code> parameter, which specifies the height of the top
+    of the magnet from the base of the labware. For more, see
+    <a href="../modules/magnet/#engage">Engage</a>.</li>
+<li>Return tip will now use pre-defined heights from hardware testing.
+    For more information, see <a href="../building_block/tip_handling/#return-tip">Return Tip</a>.</li>
+<li>When using the return tip function, tips are no longer added back
+    into the tip tracker. For more information, see
+    see <a href="../building_block/tip_handling/#return-tip">Return Tip</a>.</li>
+</ul>
+<h3 id="version-23">Version 2.3<a class="headerlink" href="#version-23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Magnetic Modules GEN2 and Temperature Modules GEN2 are now
+    supported; you can load them with the names <code>"magnetic module gen2"</code>
+    and <code>"temperature module gen2"</code>, respectively</li>
+<li>All pipettes will return tips to tipracks from a higher position to
+    avoid possible collisions</li>
+<li>During a <code>mix()</code>, the pipette will no
+    longer move up to clear the liquid in between every dispense and
+    following aspirate</li>
+<li>You can now access the temperature module's status via the <code>status</code>
+    property of <code>ModuleContext.TemperatureModuleContext</code></li>
+</ul>
+<h3 id="version-24">Version 2.4<a class="headerlink" href="#version-24" title="Permanent link">&para;</a></h3>
+<p>The following improvements were made to the <a href="../building_block/liquid_control/#touch-tip"><code>touch_tip()</code></a> command:</p>
+<ul>
+<li>The speed for <code>touch_tip()</code> can now be lowered down to 1 mm/s</li>
+<li><code>touch_tip()</code> no longer moves diagonally from the X direction -> Y direction</li>
+<li>Takes into account geometry of the deck and modules</li>
+</ul>
+<h3 id="version-25">Version 2.5<a class="headerlink" href="#version-25" title="Permanent link">&para;</a></h3>
+<p>New <a href="../building_block/utility/">Utility Commands</a> were added:</p>
+<ul>
+<li><code>ProtocolContext.set_rail_lights()</code>: turns robot rail lights on or off</li>
+<li><code>ProtocolContext.rail_lights_on</code>: describes whether or not the rail lights are on</li>
+<li><code>ProtocolContext.door_closed</code>: describes whether the robot door is closed</li>
+</ul>
+<h3 id="version-26">Version 2.6<a class="headerlink" href="#version-26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GEN2 Single pipettes now default to flow rates equivalent to 10 mm/s
+    plunger speeds - Protocols that manually configure pipette flow
+    rates will be unaffected - For a comparison between API Versions,
+    see <a href="../pipettes/defaults/">Defaults</a></li>
+</ul>
+                
+              
+              
+                
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>var disqus_config=function(){this.page.url="None",this.page.identifier="None"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//ot-docs.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../new_protocol_api/" title="API Version 2 Reference" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                API Version 2 Reference
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

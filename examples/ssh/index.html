@@ -1,0 +1,1848 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Setting Up SSH access to the OT-2 - Opentrons API Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2094f3">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-ssh-access-to-the-ot-2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Opentrons API Docs" class="md-header-nav__button md-logo" aria-label="Opentrons API Docs">
+      
+  <img src="../../assets/opentrons_logo_drop.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Opentrons API Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Setting Up SSH access to the OT-2
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/nickcrider/ot-docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          Getting Started
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../hardware/" class="md-tabs__link">
+          Hardware
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../using_the_api/" class="md-tabs__link">
+          Liquid Handling
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../new_examples/" class="md-tabs__link md-tabs__link--active">
+          Advanced Usage
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../new_protocol_api/" class="md-tabs__link">
+          API Reference
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Opentrons API Docs" class="md-nav__button md-logo" aria-label="Opentrons API Docs">
+      
+  <img src="../../assets/opentrons_logo_drop.png" alt="logo">
+
+    </a>
+    Opentrons API Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/nickcrider/ot-docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Getting Started
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon"></span>
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../writing/" title="Some Python Basics" class="md-nav__link">
+      Some Python Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3">
+    
+    <label class="md-nav__link" for="nav-1-3">
+      Simulating Protocols
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Simulating Protocols" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        <span class="md-nav__icon md-icon"></span>
+        Simulating Protocols
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../simulating/" title="Simulating on the Command Line" class="md-nav__link">
+      Simulating on the Command Line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../simulate_with_jupyter/" title="Simulating with Jupyter Notebook" class="md-nav__link">
+      Simulating with Jupyter Notebook
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../get_started/" title="Writing Your First Protocol" class="md-nav__link">
+      Writing Your First Protocol
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Hardware
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Hardware" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hardware/" title="Opentrons Hardware" class="md-nav__link">
+      Opentrons Hardware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Pipettes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Pipettes" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Pipettes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_pipette/" title="Using Pipettes" class="md-nav__link">
+      Using Pipettes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pipettes/behaviors/" title="Modifying Pipette Behaviors" class="md-nav__link">
+      Modifying Pipette Behaviors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pipettes/defaults/" title="Defaults" class="md-nav__link">
+      Defaults
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Labware
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Labware" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        Labware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_labware/" title="Loading Labware" class="md-nav__link">
+      Loading Labware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../labware/accessing/" title="Accessing Wells in Labware" class="md-nav__link">
+      Accessing Wells in Labware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../labware/positioning/" title="Specifying Position Within Wells" class="md-nav__link">
+      Specifying Position Within Wells
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Modules
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Modules" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        <span class="md-nav__icon md-icon"></span>
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_modules/" title="Hardware Modules" class="md-nav__link">
+      Hardware Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/temperature/" title="Temperature Module" class="md-nav__link">
+      Temperature Module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/magnet/" title="Magnetic Module" class="md-nav__link">
+      Magnetic Module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/thermocycler/" title="Using a Thermocycler Module" class="md-nav__link">
+      Using a Thermocycler Module
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Liquid Handling
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Liquid Handling" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Liquid Handling
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../using_the_api/" title="Using the API" class="md-nav__link">
+      Using the API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Building Block Commands
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Building Block Commands" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        <span class="md-nav__icon md-icon"></span>
+        Building Block Commands
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_atomic_commands/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../building_block/tip_handling/" title="Tip Handling" class="md-nav__link">
+      Tip Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../building_block/liquid_control/" title="Liquid Handling" class="md-nav__link">
+      Liquid Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../building_block/utility/" title="Utility Commands" class="md-nav__link">
+      Utility Commands
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Complex Commands
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Complex Commands" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon"></span>
+        Complex Commands
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_complex_commands/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../complex/transfer/" title="Transfer" class="md-nav__link">
+      Transfer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../complex/distribute_consolidate/" title="Distribute and Consolidate" class="md-nav__link">
+      Distribute and Consolidate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../complex/shared_parameters/" title="Shared Parameters" class="md-nav__link">
+      Shared Parameters
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Examples
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Examples" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon"></span>
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../basic_transfer/" title="Basic Transfer" class="md-nav__link">
+      Basic Transfer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dilution/" title="Dilution" class="md-nav__link">
+      Dilution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../loops/" title="Loops" class="md-nav__link">
+      Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../multiple_air_gaps/" title="Multiple Air Gaps" class="md-nav__link">
+      Multiple Air Gaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../plate_mapping/" title="Plate Mapping" class="md-nav__link">
+      Plate Mapping
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Advanced Usage
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Advanced Usage" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Advanced Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_examples/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Tips & Tricks
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Tips & Tricks" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        <span class="md-nav__icon md-icon"></span>
+        Tips & Tricks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../replace_tips/" title="Catching an `OutOfTipsError`" class="md-nav__link">
+      Catching an `OutOfTipsError`
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../is_simulating/" title="Skipping Simulation" class="md-nav__link">
+      Skipping Simulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../blink_lights/" title="Blink the OT-2 Lights" class="md-nav__link">
+      Blink the OT-2 Lights
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../liquid_level/" title="Implement Liquid Level Tracking" class="md-nav__link">
+      Implement Liquid Level Tracking
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Data & Device Management
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Data & Device Management" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        <span class="md-nav__icon md-icon"></span>
+        Data & Device Management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Setting Up SSH access to the OT-2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Setting Up SSH access to the OT-2" class="md-nav__link md-nav__link--active">
+      Setting Up SSH access to the OT-2
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-prerequisites" class="md-nav__link">
+    Install prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Install prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-macos" class="md-nav__link">
+    On macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-linux" class="md-nav__link">
+    On Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-windows-10" class="md-nav__link">
+    On Windows 10
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-the-command-line" class="md-nav__link">
+    Open the command line
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-a-key-pair" class="md-nav__link">
+    Generate a key pair
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate a key pair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-run-ssh-keygen" class="md-nav__link">
+    1. Run ssh-keygen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enter-a-passphrase" class="md-nav__link">
+    2. Enter a passphrase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-your-new-ssh-key-pair" class="md-nav__link">
+    3. Your new SSH key pair
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-key-on-your-ot-2" class="md-nav__link">
+    Install the key on your OT-2
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the key on your OT-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-connect-via-usb" class="md-nav__link">
+    1. Connect via USB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-find-your-ot-2s-wired-ip-address" class="md-nav__link">
+    2. Find your OT-2's wired IP address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-upload-your-public-key" class="md-nav__link">
+    3. Upload your public key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolving-key-is-not-recognized-errors" class="md-nav__link">
+    Resolving '{key' is not recognized errors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolving-the-response-content-cant-be-parsed-because-the-internet-explorer-engine-isnt-available-errors" class="md-nav__link">
+    Resolving "The response content can't be parsed because the Internet Explorer engine isn't available" errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-to-your-ot-2-with-ssh" class="md-nav__link">
+    Connect to your OT-2 with SSH
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect to your OT-2 with SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-find-your-ot-2s-ip-address" class="md-nav__link">
+    1. Find your OT-2's IP address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-connect" class="md-nav__link">
+    2. Connect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-after-connecting" class="md-nav__link">
+    3. After connecting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scp/" title="Copying files to and from your OT-2 with `scp`" class="md-nav__link">
+      Copying files to and from your OT-2 with `scp`
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../csv/" title="Loading Data from a CSV" class="md-nav__link">
+      Loading Data from a CSV
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install_module/" title="Installing Python Packages on the OT-2" class="md-nav__link">
+      Installing Python Packages on the OT-2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Running Without the App
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Running Without the App" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        <span class="md-nav__icon md-icon"></span>
+        Running Without the App
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_advanced_running/" title="Running the OT-2 Without the App" class="md-nav__link">
+      Running the OT-2 Without the App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jupyter_notebook/" title="Using the OT-2's Jupyter Notebook" class="md-nav__link">
+      Using the OT-2's Jupyter Notebook
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../command_line/" title="Using the OT-2's Command Line" class="md-nav__link">
+      Using the OT-2's Command Line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../calibration/" title="Calibration without the App" class="md-nav__link">
+      Calibration without the App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../integrating/" title="Integrating the OT-2 with a Server" class="md-nav__link">
+      Integrating the OT-2 with a Server
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../architecture/" title="Understanding the OT-2 Architecture" class="md-nav__link">
+      Understanding the OT-2 Architecture
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      API Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../new_protocol_api/" title="API Version 2 Reference" class="md-nav__link">
+      API Version 2 Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../versioning/" title="Versioning" class="md-nav__link">
+      Versioning
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-prerequisites" class="md-nav__link">
+    Install prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Install prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-macos" class="md-nav__link">
+    On macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-linux" class="md-nav__link">
+    On Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-windows-10" class="md-nav__link">
+    On Windows 10
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-the-command-line" class="md-nav__link">
+    Open the command line
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-a-key-pair" class="md-nav__link">
+    Generate a key pair
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate a key pair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-run-ssh-keygen" class="md-nav__link">
+    1. Run ssh-keygen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enter-a-passphrase" class="md-nav__link">
+    2. Enter a passphrase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-your-new-ssh-key-pair" class="md-nav__link">
+    3. Your new SSH key pair
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-key-on-your-ot-2" class="md-nav__link">
+    Install the key on your OT-2
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the key on your OT-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-connect-via-usb" class="md-nav__link">
+    1. Connect via USB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-find-your-ot-2s-wired-ip-address" class="md-nav__link">
+    2. Find your OT-2's wired IP address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-upload-your-public-key" class="md-nav__link">
+    3. Upload your public key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolving-key-is-not-recognized-errors" class="md-nav__link">
+    Resolving '{key' is not recognized errors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolving-the-response-content-cant-be-parsed-because-the-internet-explorer-engine-isnt-available-errors" class="md-nav__link">
+    Resolving "The response content can't be parsed because the Internet Explorer engine isn't available" errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-to-your-ot-2-with-ssh" class="md-nav__link">
+    Connect to your OT-2 with SSH
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect to your OT-2 with SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-find-your-ot-2s-ip-address" class="md-nav__link">
+    1. Find your OT-2's IP address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-connect" class="md-nav__link">
+    2. Connect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-after-connecting" class="md-nav__link">
+    3. After connecting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/nickcrider/ot-docs/edit/master/docs/examples/ssh.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="setting-up-ssh-access-to-the-ot-2">Setting Up SSH access to the OT-2<a class="headerlink" href="#setting-up-ssh-access-to-the-ot-2" title="Permanent link">&para;</a></h1>
+<p>SSH is a way to connect to and control your OT-2 over the command line. It's required for some troubleshooting and advanced tasks.</p>
+<p>This guide will walk you through setting up SSH for the first time. There are two parts to the process: installing SSH on your computer, and configuring your OT-2 to accept SSH connections from your computer.</p>
+<p>You will create a special pair of files called an SSH key pair. The key pair comprises a private key, which remains on your computer, and a public key, which you will copy to your OT-2.</p>
+<p>Setup will require a USB connection to your OT-2. After setup is complete, you will also be able to connect to your OT-2 with SSH over Wi-Fi. </p>
+<p>This guide applies to software versions 3.16.0 and later. </p>
+<h2 id="install-prerequisites">Install prerequisites<a class="headerlink" href="#install-prerequisites" title="Permanent link">&para;</a></h2>
+<p>You may need to install two small third-party tools:</p>
+<ul>
+<li><strong>OpenSSH</strong>, the SSH implementation that we recommend.</li>
+<li><strong>cURL</strong>, a tool to send simple network requests, which we need for setup.</li>
+</ul>
+<h3 id="on-macos">On macOS<a class="headerlink" href="#on-macos" title="Permanent link">&para;</a></h3>
+<p>OpenSSH and cURL are both already installed by default on macOS. </p>
+<h3 id="on-linux">On Linux<a class="headerlink" href="#on-linux" title="Permanent link">&para;</a></h3>
+<p>OpenSSH and cURL might be installed by default, depending on your distribution. If they're not, use your distribution's package manager to install them (for instance, <code>sudo apt install ssh curl</code>).</p>
+<h3 id="on-windows-10">On Windows 10<a class="headerlink" href="#on-windows-10" title="Permanent link">&para;</a></h3>
+<p>Microsoft provides OpenSSH as a separately installable Windows component. </p>
+<p>Open Settings. Go to <strong>Apps &gt; Apps and Features &gt; Manage Optional Features</strong>. Scan the list to see if OpenSSH Client is already there. If it's missing, at the top of the page, select Add a feature, locate OpenSSH Client, and install it.</p>
+<p>You don't need to install cURL on Windows; a different tool will replace it.</p>
+<h2 id="open-the-command-line">Open the command line<a class="headerlink" href="#open-the-command-line" title="Permanent link">&para;</a></h2>
+<p>Setup will take place over the command line. Don't worry if you've never used it before—we will walk you through it!</p>
+<p>Open a new PowerShell window (if you're using Windows 10) or a new Terminal window (if you're using Linux or macOS).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should copy and paste the commands you see in this guide instead of trying to type them out yourself.</p>
+<p>However, copying and pasting works a little differently on the command line. The usual Ctrl+C and Ctrl+V keyboard shortcuts will do something else!</p>
+<p>Instead, to paste commands, do this:</p>
+<p>On Linux or macOS, right-click inside the Terminal window and select Paste.
+On Windows, right-click the title bar of the PowerShell window and select <strong>Edit &gt; Paste</strong>.</p>
+</div>
+<h2 id="generate-a-key-pair">Generate a key pair<a class="headerlink" href="#generate-a-key-pair" title="Permanent link">&para;</a></h2>
+<h3 id="1-run-ssh-keygen">1. Run <code>ssh-keygen</code><a class="headerlink" href="#1-run-ssh-keygen" title="Permanent link">&para;</a></h3>
+<p>Having installed OpenSSH and opened a command line, you will have access to the <code>ssh-keygen</code> command. Paste into the window:</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen -f ot2_ssh_key
+</code></pre></div>
+
+<p>And press Enter.</p>
+<h3 id="2-enter-a-passphrase">2. Enter a passphrase<a class="headerlink" href="#2-enter-a-passphrase" title="Permanent link">&para;</a></h3>
+<p>The program will let you to choose a passphrase. You will use this passphrase later when you connect to your OT-2 over SSH.</p>
+<p>Providing a passphrase is optional, but we strongly recommend it. (Otherwise, anyone who has access to the file on your computer could also access your OT-2.)</p>
+<p>When you type in the passphrase, your typing won't show up. Don't worry—it's just being hidden for security! Press Enter when you've finished, and then enter the passphrase again to confirm it.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you lose this passphrase, you won't be able to recover it, and you'll have to start this guide all over to connect to your OT-2. We recommend storing your passphrase somewhere secure, like a password manager. </p>
+</div>
+<h3 id="3-your-new-ssh-key-pair">3. Your new SSH key pair<a class="headerlink" href="#3-your-new-ssh-key-pair" title="Permanent link">&para;</a></h3>
+<p>After entering a passphrase, you should see two files in your home directory:</p>
+<ul>
+<li><code>ot2_ssh_key</code>, which will stay on your computer.</li>
+<li><code>ot2_ssh_key.pub</code>, which will be copied onto your OT-2.</li>
+</ul>
+<p>Before continuing, make sure those files exist. Enter:</p>
+<div class="highlight"><pre><span></span><code>cat ot2_ssh_key.pub
+</code></pre></div>
+
+<p>If you see successful output, congratulations! Your new SSH key is ready to install.</p>
+<h2 id="install-the-key-on-your-ot-2">Install the key on your OT-2<a class="headerlink" href="#install-the-key-on-your-ot-2" title="Permanent link">&para;</a></h2>
+<p>Now that you've created an SSH key pair, you'll install the public key to your OT-2. This will tell the OT-2 to accept connections from the matching private key, on your computer.</p>
+<h3 id="1-connect-via-usb">1. Connect via USB<a class="headerlink" href="#1-connect-via-usb" title="Permanent link">&para;</a></h3>
+<p>To show that you have physical access to the OT-2, you must connect to it via USB for this part. A Wi-Fi connection won't work. Plug in the USB cable, and confirm that your OT-2 is shown with a USB icon in the Opentrons App. You may need to refresh the list. </p>
+<h3 id="2-find-your-ot-2s-wired-ip-address">2. Find your OT-2's wired IP address<a class="headerlink" href="#2-find-your-ot-2s-wired-ip-address" title="Permanent link">&para;</a></h3>
+<p>In the Opentrons App, find and take note of the part of your robot's Wired IP.
+It's shown under the Connectivity section of the App.</p>
+<h3 id="3-upload-your-public-key">3. Upload your public key<a class="headerlink" href="#3-upload-your-public-key" title="Permanent link">&para;</a></h3>
+<p>Paste the following command, but don't press Enter yet—we will have to modify it slightly.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">MacOS/Linux</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>curl <span class="se">\</span>
+-H <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="se">\</span>
+-d <span class="s2">&quot;{\&quot;key\&quot;:\&quot;</span><span class="k">$(</span>cat ot2_ssh_key.pub<span class="k">)</span><span class="s2">\&quot;}&quot;</span> <span class="se">\</span>
+ROBOT_IP:31950/server/ssh_keys
+</code></pre></div>
+
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows 10</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>@<span class="o">{</span><span class="nv">key</span> <span class="o">=</span> Get-Content ot2_ssh_key.pub <span class="p">|</span> Out-String<span class="o">}</span> <span class="p">|</span> ConvertTo-Json <span class="p">|</span> Invoke-WebRequest -Method Post -ContentType <span class="s1">&#39;application/json&#39;</span> -Uri ROBOT_IP:31950/server/ssh_keys 
+</code></pre></div>
+
+</div>
+</div>
+<p>Use the arrow keys to move to the part of the command that says <code>ROBOT_IP</code>. Replace <code>ROBOT_IP</code> with the actual wired IP address you found above.</p>
+<p>Press Enter to run the command. It shouldn't take more than a second. If all goes well, you should see a response containing the phrase "Added key."</p>
+<h3 id="resolving-key-is-not-recognized-errors">Resolving <code>'{key' is not recognized</code> errors<a class="headerlink" href="#resolving-key-is-not-recognized-errors" title="Permanent link">&para;</a></h3>
+<p>If you see an error message like this, you're using Command Prompt instead of PowerShell. Open a PowerShell window and try the command again.</p>
+<h3 id="resolving-the-response-content-cant-be-parsed-because-the-internet-explorer-engine-isnt-available-errors">Resolving "The response content can't be parsed because the Internet Explorer engine isn't available" errors<a class="headerlink" href="#resolving-the-response-content-cant-be-parsed-because-the-internet-explorer-engine-isnt-available-errors" title="Permanent link">&para;</a></h3>
+<p>If you see an error message like this, open Internet Explorer, go through its first-time setup, and then run the command again. PowerShell relies on Internet Explorer to configure some network settings.</p>
+<h2 id="connect-to-your-ot-2-with-ssh">Connect to your OT-2 with SSH<a class="headerlink" href="#connect-to-your-ot-2-with-ssh" title="Permanent link">&para;</a></h2>
+<p>Congratulations! You've completed the first-time setup, and you're ready to finally connect.</p>
+<h3 id="1-find-your-ot-2s-ip-address">1. Find your OT-2's IP address<a class="headerlink" href="#1-find-your-ot-2s-ip-address" title="Permanent link">&para;</a></h3>
+<p>In the Opentrons App, find the OT-2 that you want to connect to. Note its Wired IP or Wireless IP. </p>
+<p>If you use the Wired IP, the SSH connection will be made over USB.
+If you use the Wireless IP, the SSH connection will be made over Wi-Fi.</p>
+<p>These IP addresses will change periodically, especially after the OT-2 is restarted or reconnected. You should double-check the IP address each time you want to make an SSH connection.</p>
+<h3 id="2-connect">2. Connect<a class="headerlink" href="#2-connect" title="Permanent link">&para;</a></h3>
+<p>Open a PowerShell window if you're on Windows 10, or a Terminal window if you're on Linux or macOS.</p>
+<p>Enter the following command. Replace <code>ROBOT_IP</code>  with the IP address you found above.</p>
+<div class="highlight"><pre><span></span><code>ssh -i ot2_ssh_key root@ROBOT_IP
+</code></pre></div>
+
+<p>You may see a short warning saying "Permanently added [IP address] to the list of known hosts." You can safely ignore it.</p>
+<h3 id="3-after-connecting">3. After connecting<a class="headerlink" href="#3-after-connecting" title="Permanent link">&para;</a></h3>
+<p>If the connection worked, you'll be greeted by the Opentrons logo. <span class="twemoji"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 1417.6 1406.7467"
+   height="1406.7467"
+   width="1417.6"
+   xml:space="preserve"
+   id="svg2"
+   version="1.1"><metadata
+     id="metadata8"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs6"><clipPath
+       id="clipPath24"
+       clipPathUnits="userSpaceOnUse"><path
+         id="path22"
+         d="m 6238.56,5719.79 c -184.4,16.21 -370.01,-92.92 -510.65,-221.74 -539.3,-494.01 -1162.82,-1073.06 -1951.38,-1030.78 -0.92,-336.82 106.03,-666.86 347.15,-946.1 281.38,-325.9 665.34,-499.04 1062.21,-527.58 31.52,-4.12 66.99,-7.28 110,-8.69 859.41,-28.18 1578.94,645.67 1607.11,1505.07 12.34,376.44 -159.85,1091.34 -587.63,1215.49 -25.5,7.39 -51.14,12.08 -76.81,14.33 z" /></clipPath><linearGradient
+       id="linearGradient30"
+       spreadMethod="pad"
+       gradientTransform="matrix(3945.18,-129.335,-129.335,-3945.18,3774.91,4417.97)"
+       gradientUnits="userSpaceOnUse"
+       y2="0"
+       x2="1"
+       y1="0"
+       x1="0"><stop
+         id="stop26"
+         offset="0"
+         style="stop-opacity:1;stop-color:#4766ba" /><stop
+         id="stop28"
+         offset="1"
+         style="stop-opacity:1;stop-color:#78d1b8" /></linearGradient></defs><g
+     transform="matrix(1.3333333,0,0,-1.3333333,0,1406.7467)"
+     id="g10"><g
+       transform="scale(0.1)"
+       id="g12"><path
+         id="path14"
+         style="fill:#100f0d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         d="M 6236.04,10550.6 6032.52,9255.77 c 1867.62,-338.88 3288.74,-1975.96 3288.74,-3939.76 0,-2208.57 -1796.76,-4005.34 -4005.27,-4005.34 -2208.52,0 -4005.28,1796.77 -4005.28,4005.34 0,1963.8 1421.13,3600.88 3288.74,3939.76 L 4395.93,10550.6 C 1901.89,10113.4 0,7933.32 0,5316.01 0,2384.71 2384.75,0 5315.99,0 8247.23,0 10632,2384.71 10632,5316.01 c 0,2617.31 -1901.92,4797.39 -4395.96,5234.59" /><path
+         id="path16"
+         style="fill:#100f0d;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         d="M 6864.32,6082.45 C 6139.46,7184.46 5316.36,8334.78 5316.09,8335.06 l -0.1,-0.32 -0.11,0.32 c -0.27,-0.28 -823.37,-1150.6 -1548.22,-2252.61 -625.22,-950.54 -807.28,-2124.56 -36.11,-2960.67 426.18,-462.07 1001.68,-687.44 1576.15,-688.63 0.76,-0.02 1.45,-0.35 2.2,-0.35 v -0.31 c 1.17,-0.01 2.32,0.16 3.49,0.16 0.57,0 1.14,-0.04 1.71,-0.08 v -0.08 c 0.29,0 0.6,0.02 0.89,0.03 0.29,-0.01 0.59,-0.03 0.88,-0.03 v 0.08 c 0.57,0.04 1.15,0.08 1.72,0.08 1.17,0 2.31,-0.17 3.48,-0.16 v 0.31 c 0.75,0 1.45,0.33 2.2,0.35 574.47,1.19 1149.97,226.56 1576.15,688.63 771.18,836.11 589.13,2010.13 -36.1,2960.67" /><g
+         id="g18"><g
+           clip-path="url(#clipPath24)"
+           id="g20"><path
+             id="path32"
+             style="fill:url(#linearGradient30);fill-opacity:1;fill-rule:nonzero;stroke:none"
+             d="m 6238.56,5719.79 c -184.4,16.21 -370.01,-92.92 -510.65,-221.74 -539.3,-494.01 -1162.82,-1073.06 -1951.38,-1030.78 -0.92,-336.82 106.03,-666.86 347.15,-946.1 281.38,-325.9 665.34,-499.04 1062.21,-527.58 31.52,-4.12 66.99,-7.28 110,-8.69 859.41,-28.18 1578.94,645.67 1607.11,1505.07 12.34,376.44 -159.85,1091.34 -587.63,1215.49 -25.5,7.39 -51.14,12.08 -76.81,14.33" /></g></g></g></g></svg></span> </p>
+<p>Try running some commands on your OT-2. For example, enter the command: </p>
+<div class="highlight"><pre><span></span><code>whoami
+</code></pre></div>
+
+<p>You should see the command output <code>root</code>. </p>
+                
+              
+              
+                
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>var disqus_config=function(){this.page.url="None",this.page.identifier="None"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//ot-docs.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../liquid_level/" title="Implement Liquid Level Tracking" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Implement Liquid Level Tracking
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../scp/" title="Copying files to and from your OT-2 with `scp`" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Copying files to and from your OT-2 with `scp`
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
