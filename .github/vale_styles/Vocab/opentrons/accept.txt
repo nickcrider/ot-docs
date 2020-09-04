@@ -8,7 +8,6 @@
 [Bb]uildroot
 [Mm]icroliters?
 [Nn]anoliters?
-csv
 CSV
 scp
 [Mm]onorepo
@@ -21,4 +20,3 @@ OT-2
 [Ee]ndstops?
 [Aa]ccessors?
 html
-HTML
