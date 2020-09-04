@@ -70,13 +70,13 @@ generally five sections:
 
 Metadata is some helpful information about your protocol. You should have a good guess of 
 what each of the fields in the `metadata` is doing.
-Most metadata is not needed to run a protocol, but if present can help the Opentrons App
+Most metadata isn't needed to run a protocol, but if present can help the Opentrons App
 display additional data about the protocol currently being executed.
 These optional (but recommended) fields are (`"protocolName"`,
 `"author"`, and `"description"`).
 
 !!! Warning
-    The required element of the metadata is `"apiLevel"`. It is used to provide
+    The required element of the metadata is `"apiLevel"`. It's used to provide
     consistent pipetting behaviors in your protocol as we make changes to the API.
 
 The `"apiLevel"` must contain a string specifying the major and minor version of the Python Protocol
@@ -85,7 +85,7 @@ for version {! version_info/apilevel.txt !} of the Python Protocol API
 Protocol API should have in its metadata `"apiLevel": "{! version_info/apilevel.txt !}"`.
 
 Anytime we make a change to the API that affects pipetting behaviors, 
-(e.g. tip positions, flow rates, pipette movement, etc.) we increment the `apiLevel`.
+(for example tip positions, flow rates, pipette movement, etc.) we increment the `apiLevel`.
 This means if you write and test your protocol on API Version {! version_info/apilevel.txt !},
 it will continue to behave the same as we update the Software version.
 
@@ -122,9 +122,9 @@ The function `run()` is the container for the code that defines your
 protocol.
 
 The object `protocol` is the *protocol context*, which represents the
-robot and its capabilities. It is always an instance of the
+robot and its capabilities. It's always an instance of the
 `opentrons.protocol_api.contextsProtocolContext` class (though you'll never have to instantiate one
-yourself - it is always passed in to `run()`), and it is tagged as such
+yourself–it's always passed in to `run()`), and it's tagged as such
 in the example protocol to allow most editors to give you autocomplete.
 
 The protocol context has two responsibilities:
@@ -142,12 +142,12 @@ must tell the protocol context about what should be present on the deck,
 and where. You tell the protocol context about labware by calling the
 method `protocol.load_labware(name, slot)` and saving the result.
 
-The name of a labware is a string that is different for each kind of
+The name of a labware is a string that's different for each kind of
 labware. You can look up labware to add to your protocol on the
 Opentrons [Labware Library](https://labware.opentrons.com).
 
 The slot is the labelled location on the deck in which you've placed
-the labware. The available slots are numbered from 1-11.
+the labware. The available slots are numbered from 1–11.
 
 Our example protocol above loads
 

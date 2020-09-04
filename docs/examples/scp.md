@@ -1,14 +1,14 @@
-# Copying files to and from your OT-2 with SCP
+# Copying files to and from your OT-2 with `scp`
 
-SCP is a command line tool for copying files between devices. You can use it:
+`scp` is a command line tool for copying files between devices. You can use it:
 
 - To upload files from your computer to your OT-2. This is useful for things like CSV input files.
 - To download files from your OT-2 to your computer. This is useful for things like pictures taken with the OT-2's camera.
-- Using SCP to transfer files is an advanced task. To do it, you should be comfortable with the command line and Linux filesystems.
+- Using `scp` to transfer files is an advanced task. To do it, you should be comfortable with the command line and Linux filesystems.
 
 ## Before starting
 
-SCP is installed alongside SSH, and it shares its first-time setup to configure the OT-2 to accept connections. Before following these instructions, make sure you've completed the SSH setup guide:
+`scp` is installed alongside SSH, and it shares its first-time setup to configure the OT-2 to accept connections. Before following these instructions, make sure you've completed the SSH setup guide:
 
 [Setting up SSH access to your OT-2](ssh.md){: .md-button }
 

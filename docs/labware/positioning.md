@@ -11,7 +11,7 @@ Each of these methods returns an object called a
 `opentrons.types.Location`, which
 encapsulates a position in deck coordinates (see
 [Deck Coordinates](../new_protocol_api.md#deck-coordinates)) and a well
-with which it is associated. This lets you further manipulate the
+with which it's associated. This lets you further manipulate the
 positions returned by these methods. All
 `InstrumentContext` methods that
 involve positions accept these `Location` objects.

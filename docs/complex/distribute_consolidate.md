@@ -39,7 +39,7 @@ Dispensing 240.0 uL into well A1 in "1"
 Dropping tip well A1 in "12"
 ```
 
-If there are multiple destination wells, the pipette will not combine
+If there are multiple destination wells, the pipette won't combine
 the transfers - it will aspirate from one source, dispense into the
 target, then aspirate from the other source.
 

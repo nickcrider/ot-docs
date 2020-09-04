@@ -36,7 +36,7 @@ protocol.home()
 ```
 
 This returns the same kind of object - a
-`ProtocolContext` - that is passed
+`ProtocolContext` - that's passed
 into your protocol's `run` function when you upload your protocol in
 the Opentrons App. Full documentation on the capabilities and use of the
 `ProtocolContext` object is

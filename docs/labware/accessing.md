@@ -46,12 +46,12 @@ methods available to access wells and their differences.
 
 | Method Name                                    |   Returns                                                            |
 | -----------------------------------------------| -------------------------------------------------------------------- |
-| `wells()`       | List of all wells, i.e. `[labware:A1, labware:B1, labware:C1...]`    |
-| `rows()`        | List of a list ordered by row, i.e `[[labware:A1, labware:A2...], [labware:B1, labware:B2..]]`    |
-| `columns()`     | List of a list ordered by column, i.e. `[[labware:A1, labware:B1..], [labware:A2, labware:B2..]]` |
-| `wells_by_name()` |     Dictionary with well names as keys, i.e.`{'A1': labware:A1, 'B1': labware:B1}`  |
-| `rows_by_name()`  |      Dictionary with row names as keys, i.e. `{'A': [labware:A1, labware:A2..], 'B': [labware:B1, labware:B2]}` |
-| `columns_by_name()`  |   Dictionary with column names as keys, i.e. `{'1': [labware:A1, labware:B1..], '2': [labware:A2, labware:B2..]}`  |
+| `wells()`       | List of all wells, `[labware:A1, labware:B1, labware:C1...]`    |
+| `rows()`        | List of a list ordered by row, `[[labware:A1, labware:A2...], [labware:B1, labware:B2..]]`    |
+| `columns()`     | List of a list ordered by column, `[[labware:A1, labware:B1..], [labware:A2, labware:B2..]]` |
+| `wells_by_name()` |     Dictionary with well names as keys, `{'A1': labware:A1, 'B1': labware:B1}`  |
+| `rows_by_name()`  |      Dictionary with row names as keys,  `{'A': [labware:A1, labware:A2..], 'B': [labware:B1, labware:B2]}` |
+| `columns_by_name()`  |   Dictionary with column names as keys, `{'1': [labware:A1, labware:B1..], '2': [labware:A2, labware:B2..]}`  |
 
 
 ### Accessing Individual Wells
@@ -59,7 +59,7 @@ methods available to access wells and their differences.
 #### Dictionary Access
 
 Once a labware is loaded into your protocol, you can easily access the
-many wells within it by using dictionary indexing. If a well does not
+many wells within it by using dictionary indexing. If a well doesn't
 exist in this labware, you will receive a `KeyError`. This is equivalent
 to using the return value of
 `wells_by_name()`:
@@ -83,8 +83,8 @@ plate.wells()[23]  # well D6
 ```
 
 !!! Tip
-    You may find well names (e.g. `"B3"`) to be easier to reason with,
-    especially with irregular labware (e.g.
+    You may find well names (for example `"B3"`) to be easier to reason with,
+    especially with irregular labware (for example
     `opentrons_10_tuberack_falcon_4x50ml_6x15ml_conical` ([Labware
     Library](https://labware.opentrons.com/opentrons_10_tuberack_falcon_4x50ml_6x15ml_conical)).
     Whichever well access method you use, your protocol will be most
@@ -96,7 +96,7 @@ _New in version 2.0_
 ### Accessing Groups of Wells
 
 When describing a liquid transfer, you can point to groups of wells for
-the liquid's source and/or destination. Or, you can get a group of
+both the liquid's source and the destination. Or, you can get a group of
 wells and loop (or iterate) through them.
 
 You can access a specific row or column of wells by using the

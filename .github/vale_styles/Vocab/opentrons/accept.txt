@@ -17,3 +17,8 @@ scp
 [Ww]etlab
 [Gg]ithub
 [Rr]unlog
+OT-2
+[Ee]ndstops?
+[Aa]ccessors?
+html
+HTML

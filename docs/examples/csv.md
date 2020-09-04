@@ -8,7 +8,7 @@ Since protocols written with our Python Protocol API have the full power of Pyth
 ## Ways of using CSV data in Python protocols
 
 ### Embed the data into the protocol itself
-The easiest way to use CSV data in your Python protocol is just to open the CSV in a text editor and copy and paste the CSV data into your Python script as a big string. From there, you can use the standard [csv](https://docs.python.org/3/library/csv.html) module to parse the data like this:
+The easiest way to use CSV data in your Python protocol is just to open the CSV in a text editor and copy and paste the CSV data into your Python script as a big string. From there, you can use the standard [`csv`](https://docs.python.org/3/library/csv.html) module to parse the data like this:
 
 ```python
 import csv
@@ -31,8 +31,8 @@ for csv_row in csv_reader:
 
 If you prefer to keep the CSV data in its own file, you can use `scp`  to upload it to your OT-2. This requires some familiarity with the command line. See: [Copying files to and from your OT-2 with `scp`](scp.md).
 
-Your protocol can use the usual Python I/O to read the file, and the [csv](https://docs.python.org/3/library/csv.html) module to parse it.
+Your protocol can use the usual Python I/O to read the file, and the [`csv`](https://docs.python.org/3/library/csv.html) module to parse it.
 
 ### Can I upload CSV files through the Opentrons App?
 
-Currently, the Opentrons App does not support uploading CSV files. Use one of the above alternatives instead.
+Currently, the Opentrons App doesn't support uploading CSV files. Use one of the above alternatives instead.

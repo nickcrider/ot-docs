@@ -1,6 +1,6 @@
 # Multiple Air Gaps
 
-The OT-2 pipettes can do some things that a human cannot do with a
+The OT-2 pipettes can do some things that a human can't do with a
 pipette, like accurately alternate between aspirating and creating air
 gaps within the same tip. The below example will aspirate from the first
 five wells in the reservoir, while creating an air gap between each

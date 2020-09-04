@@ -1,13 +1,13 @@
 # Simulating on the Command Line
 
 Simulating protocols requires the `opentrons` package installed.
-The best way to do that is to get it from Python's
+The best way to do that's to get it from Python's
 package manager, `pip`.
 
 
 ## Installation
 
-First, you'll need to install install Python 3.7.6 ([Windows
+First, you'll need to install Python 3.7.6 ([Windows
 x64](https://www.python.org/ftp/python/3.7.6/python-3.7.6-amd64.exe),
 [Windows x86](https://www.python.org/ftp/python/3.7.6/python-3.7.6.exe),
 [OS X](https://www.python.org/ftp/python/3.7.6/python-3.7.6-macosx10.6.pkg))
@@ -30,11 +30,11 @@ by opening a terminal and running:
     python.exe --version
     ```
 
-If this is not higher than 3.7.6, you have another version of Python installed; this
+If this isn't higher than 3.7.6, you have another version of Python installed; this
 happens frequently on OS X and sometimes on Windows. We recommend using
-a tool like [pyenv](https://github.com/pyenv/pyenv) to manage multiple
+a tool like [`pyenv`](https://github.com/pyenv/pyenv) to manage multiple
 Python versions. This is particularly useful on OS X, which has a
-built-in install of Python 2.7 that should not be removed.
+built-in install of Python 2.7 that shouldn't be removed.
 
 Once Python is installed, install the [opentrons
 package](https://pypi.org/project/opentrons/) using `pip`:

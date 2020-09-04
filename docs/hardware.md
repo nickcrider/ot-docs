@@ -19,11 +19,11 @@ load string.
 
 | Pipette           | Range         | Model Name            |
 | ----------------- | ------------- | --------------------- |
-| P20 Single GEN2   | 1 - 20 µL     | `'p20_single_gen2'`   |
-| P300 Single GEN2  | 20 - 300 µL   | `'p300_single_gen2'`  |
-| P1000 Single GEN2 | 100 - 1000 µL | `'p1000_single_gen2'` |
-| P300 Multi GEN2   | 20-300 µL     | `'p300_multi_gen2'`   |
-| P20 Multi GEN2    | 1-20 µL       | `'p20_multi_gen2'`    |
+| P20 Single GEN2   | 1–20 µL     | `'p20_single_gen2'`   |
+| P300 Single GEN2  | 20–300 µL   | `'p300_single_gen2'`  |
+| P1000 Single GEN2 | 100–1000 µL | `'p1000_single_gen2'` |
+| P300 Multi GEN2   | 20–300 µL     | `'p300_multi_gen2'`   |
+| P20 Multi GEN2    | 1–20 µL       | `'p20_multi_gen2'`    |
 
 Once you've gotten them physically attached, [the next section of the guide](new_pipette.md) will show 
 you how to use them.

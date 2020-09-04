@@ -71,7 +71,7 @@ within a well in direct calls to
 `InstrumentContext.aspirate()` and
 `.InstrumentContext.dispense()` (see the
 [Specifying Position Within Wells](../labware/positioning.md) section), you
-cannot use this method in complex commands like
+can't use this method in complex commands like
 `InstrumentContext.transfer()`, and it
 can be cumbersome to specify the position every time.
 
@@ -129,7 +129,7 @@ This is a value in mm/s that controls the overall speed of the gantry.
 Its default is 400 mm/s.
 
 !!! Warning
-    The default of 400 mm/s was chosen because it is the maximum speed
+    The default of 400 mm/s was chosen because it's the maximum speed
     Opentrons knows will work with the gantry. Your specific robot may be
     able to move faster, but you shouldn't make this value higher than the
     default without extensive experimentation.
@@ -176,7 +176,7 @@ def run(protocol):
     protocol.max_speeds['A'] = None  # reset a axis limit
 ```
 
-You cannot set limits for the pipette plunger axes with this mechanism;
+You can't set limits for the pipette plunger axes with this mechanism;
 instead, set the flow rates or plunger speeds as described in
 [Plunger Flow Rates](#plunger-flow-rates).
 
@@ -186,8 +186,8 @@ _New in version 2.0_
 
 GEN2 pipettes have different volume ranges than GEN1 pipettes. However,
 each GEN2 pipette covers one or two GEN1 pipette volume ranges. For
-instance, with a range of 1 - 20 µL, the P20 Single GEN2 covers the P10
-Single GEN1 (1 - 10 µL). If your protocol specifies a GEN1 pipette but
+instance, with a range of 1–20 µL, the P20 Single GEN2 covers the P10
+Single GEN1 (1–10 µL). If your protocol specifies a GEN1 pipette but
 you have a GEN2 pipette attached to your OT-2 with a compatible volume
 range, you can still run your protocol. The OT-2 will consider the GEN2
 pipette to have the same minimum volume as the GEN1 pipette, so any

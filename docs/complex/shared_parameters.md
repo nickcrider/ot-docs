@@ -5,13 +5,13 @@ follow the same order of operations. To see a quick overview of the
 possible configuration options, jump down to the table below.
 
 If you want to customize the behavior 
-of the Complex Commands beyond what is shown on this page, we recommend
+of the Complex Commands beyond what's shown on this page, we recommend
 creating your own functions from the [Building Block Commands](../new_atomic_commands.md)
 
 ## Order of Operations In Complex Commands
 
 Parameters to complex commands add behaviors to the generated complex
-command in a specific order which cannot be changed. Specifically,
+command in a specific order which can't be changed. Specifically,
 advanced commands execute their atomic commands in this order:
 
 1.  Tip logic
@@ -22,13 +22,13 @@ advanced commands execute their atomic commands in this order:
 6.  Dispense
 7.  Touch tip
 
-Steps 1-7 are repeated for all wells, and then finally:
+Steps 1–7 are repeated for all wells, and then finally:
 
 8.  Empty disposal volume into trash, if any
 9.  Blow Out
 
 Notice how blow out only occurs after getting rid of disposal volume. If
-you want blow out to occur after every dispense, you should not include a
+you want blow out to occur after every dispense, you shouldn't include a
 disposal volume.
 
 ## Default Parameters
@@ -313,7 +313,7 @@ _New in version 2.0_
 ### `disposal_volume`
 
 When dispensing multiple times from the same tip in
-`distribute()`, it is
+`distribute()`, it's
 recommended to aspirate an extra amount of liquid to be disposed of
 after distributing. This added `disposal_volume` can be set as an
 optional argument.

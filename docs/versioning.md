@@ -14,7 +14,7 @@ Protocol API based only on changes that affect protocols.
 
 The API is versioned with a major and minor version, expressed like
 this: `major.minor`. For instance, major version 2 and minor version 0
-is written as `2.0`. Versions are not decimal numbers. Major version 2
+is written as `2.0`. Versions aren't decimal numbers. Major version 2
 and minor version 10 is written as `2.10`, while `2.1` means major
 version 2 and minor version 1.
 
@@ -66,8 +66,8 @@ def run(protocol: protocol_apiProtocolContext):
 This key exists alongside the other elements of the metadata.
 
 !!! Warning
-    Version specification is required by the system. If you do not specify
-    your target API version, you will not be able to simulate or run your
+    Version specification is required by the system. If you don't specify
+    your target API version, you won't be able to simulate or run your
     protocol.
 
 The version you specify determines the features and behaviors available
@@ -91,7 +91,7 @@ def run(protocol: protocol_apiProtocolContext):
     left.aspirate(volume=50000, location=plate['A1'], units='nanoliters')
 ```
 
-would cause an error, because the `units` argument is not present in API
+would cause an error, because the `units` argument isn't present in API
 version 2.0 (or in any version, it's just an example). This protects you 
 from accidentally using features not present in your specified API version, 
 and keeps your protocol portable between API versions.
@@ -108,7 +108,7 @@ the Opentrons App for your OT-2.
 
 This maximum supported API level is the highest API level you can
 specify in a protocol. If you upload a protocol that specifies a higher
-API level than the OT-2 software supports, the OT-2 cannot simulate or
+API level than the OT-2 software supports, the OT-2 can't simulate or
 run your protocol.
 
 ## Determining What Features Are In What Version

@@ -2,13 +2,13 @@
 
 The Magnetic Module controls a set of permanent magnets which can move
 vertically. When the magnets are raised or engaged, they induce a
-magnetic field in the labware on the module. When they are lowered or
-disengaged, they do not.
+magnetic field in the labware on the module. When they're lowered or
+disengaged, they don't.
 
 The Magnetic Module is represented by a
 `MagneticModuleContext` object.
 
-For the purposes of this section, assume we have the following already:
+The example code in this section is inserted into this `run(protoco)` function:
 
 ```python
 from opentrons import protocol_api
@@ -56,7 +56,7 @@ for labware:
     _New in version 2.2._
 
 !!! Note
-    There is a +/- 1 mmm variance across magnetic module units, using
+    There is a +/- 1 mm variance across magnetic module units, using
     `height_from_base=0` might not be able to get the magnets to completely
     flush with base of the labware. Please test before carrying out your
     experiment to ensure the desired engage height for your labware.
@@ -83,7 +83,7 @@ for labware:
 
 !!! Note
     Only certain labwares have defined engage heights for the Magnetic
-    Module. If a labware that does not have a defined engage height is
+    Module. If a labware that doesn't have a defined engage height is
     loaded on the Magnetic Module (or if no labware is loaded), then
     `height_from_labware` (since version 2.2) or `height`, must be
     specified.
@@ -98,7 +98,7 @@ mag_mod.disengage()
 ```
 
 The Magnetic Module will disengage when the device is turned on. It will
-not auto-disengage otherwise unless you call
+not automatically disengage otherwise unless you call
 `MagneticModuleContext.disengage()` in
 your protocol.
 
@@ -107,7 +107,7 @@ _New in version 2.0_
 ## Check the Status
 
 The `MagneticModuleContext.status`
-property is a string that is one of `'engaged'` or `'disengaged'`.
+property is a string that's one of `'engaged'` or `'disengaged'`.
 
 ```python
 mag_mod.status

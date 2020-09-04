@@ -14,7 +14,7 @@ import sys
 ```
 
 !!! Note
-    you do not need to do this if you want to use the 
+    you don't need to do this if you want to use the 
     [Robot's Jupyter Notebook](new_advanced_running.md#jupyter-notebook),
     you only need to use `pip` for your locally-installed notebook.
 

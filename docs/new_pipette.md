@@ -36,8 +36,8 @@ _New in version 2.0_
 
 !!! Caution
     When you load a pipette in a protocol, you inform the OT-2 that you want
-    the specified pipette to be present. Even if you do not use the pipette
-    anywhere else in your protocol, the Opentrons App and the OT-2 will not
+    the specified pipette to be present. Even if you don't use the pipette
+    anywhere else in your protocol, the Opentrons App and the OT-2 won't
     let your protocol proceed until all pipettes loaded with
     `load_instrument` are attached to the OT-2.
 
@@ -49,18 +49,18 @@ for each model of pipette sold by Opentrons.
 
 | Pipette           | Range         | Model Name            |
 | ----------------- | ------------- | --------------------- |
-| P20 Single GEN2   | 1 - 20 µL     | `'p20_single_gen2'`   |
-| P300 Single GEN2  | 20 - 300 µL   | `'p300_single_gen2'`  |
-| P1000 Single GEN2 | 100 - 1000 µL | `'p1000_single_gen2'` |
-| P300 Multi GEN2   | 20-300 µL     | `'p300_multi_gen2'`   |
-| P20 Multi GEN2    | 1-20 µL       | `'p20_multi_gen2'`    |
-| P10 Single        | 1 - 10 µL     | `'p10_single'`        |
-| P10 Multi         | 1 - 10 µL     | `'p10_multi'`         |
-| P50 Single        | 5 - 50 µL     | `'p50_single'`        |
-| P50 Multi         | 5 - 50 µL     | `'p50_multi'`         |
-| P300 Single       | 30 - 300 µL   | `'p300_single'`       |
-| P300 Multi        | 30 - 300 µL   | `'p300_multi'`        |
-| P1000 Single      | 100 - 1000 µL | `'p1000_single'`      |
+| P20 Single GEN2   | 1–20 µL     | `'p20_single_gen2'`   |
+| P300 Single GEN2  | 20–300 µL   | `'p300_single_gen2'`  |
+| P1000 Single GEN2 | 100–1000 µL | `'p1000_single_gen2'` |
+| P300 Multi GEN2   | 20–300 µL     | `'p300_multi_gen2'`   |
+| P20 Multi GEN2    | 1–20 µL       | `'p20_multi_gen2'`    |
+| P10 Single        | 1–10 µL     | `'p10_single'`        |
+| P10 Multi         | 1–10 µL     | `'p10_multi'`         |
+| P50 Single        | 5–50 µL     | `'p50_single'`        |
+| P50 Multi         | 5–50 µL     | `'p50_multi'`         |
+| P300 Single       | 30–300 µL   | `'p300_single'`       |
+| P300 Multi        | 30–300 µL   | `'p300_multi'`        |
+| P1000 Single      | 100–1000 µL | `'p1000_single'`      |
 
 ## Using Multi-Channel Pipettes
 
@@ -73,7 +73,7 @@ the pipette. Location arguments to building block and advanced commands
 are specified for the backmost channel. This also means that offset
 changes (such as `Well.top()` or `Well.bottom()`) can be applied to the
 single specified well, and each channels of the pipette will be at the
-same position relative to the well that it is over.
+same position relative to the well that it's over.
 
 Because there is only one motor in a multi-channel pipette,
 multi-channel pipettes will always aspirate and dispense on all channels
