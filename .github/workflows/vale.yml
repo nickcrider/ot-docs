@@ -1,4 +1,4 @@
-name: Vale
+name: Proofread with Vale
 on: [push]
 
 jobs:
