@@ -218,6 +218,6 @@ you use the pipette you defined to:
 
 ## You Next Protocol
 
-OK, so now that you sucessfully transfered some liquid from one well to another, 
+OK, so now that you successfully transferred some liquid from one well to another, 
 you're probably ready to move on to bigger and better things! The next sections 
 will show you how to add additional hardware and labware to your OT-2.

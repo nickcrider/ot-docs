@@ -1,4 +1,4 @@
-# Impliment Liquid Level Tracking
+# Implement Liquid Level Tracking
 
 ```python
 import math

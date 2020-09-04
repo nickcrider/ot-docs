@@ -5,7 +5,7 @@ follow the same order of operations. To see a quick overview of the
 possible configuration options, jump down to the table below.
 
 If you want to customize the behavior 
-of the Complex Commands beyond what is shown on this page, we reccomend 
+of the Complex Commands beyond what is shown on this page, we recommend
 creating your own functions from the [Building Block Commands](../new_atomic_commands.md)
 
 ## Order of Operations In Complex Commands
@@ -28,7 +28,7 @@ Steps 1-7 are repeated for all wells, and then finally:
 9.  Blow Out
 
 Notice how blow out only occurs after getting rid of disposal volume. If
-you want blow out to occu after every dispense, you should not include a
+you want blow out to occur after every dispense, you should not include a
 disposal volume.
 
 ## Default Parameters
@@ -161,7 +161,7 @@ Dropping tip well A1 in "12"
 
 ### `trash`
 
-By default, compelx commands will drop the pipette's tips in the trash
+By default, complex commands will drop the pipette's tips in the trash
 container. However, if you wish to instead return the tip to its tip
 rack, you can set `trash=False`.
 

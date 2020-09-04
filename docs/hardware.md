@@ -2,7 +2,7 @@
 
 This section shows you how to interact with hardware in the API. The API makes 
 it easy to manage the pipettes attached to your robot, the labware you're using 
-to hold your reagents, and (optionally) the Openrons Hardware modules that enable 
+to hold your reagents, and (optionally) the Opentrons Hardware modules that enable 
 additional workflows.
 
 Specifically, you'll learn how the API handles:

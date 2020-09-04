@@ -14,7 +14,7 @@ def run(protocol: protocol_apiProtocolContext):
     tiprack_2 = protocol.load_labware('opentrons_96_tiprack_300ul', 3)
     reservoir = protocol.load_labware('usascientific_12_reservoir_22ml', 4)
     p300 = protocol.load_instrument('p300_single', 'right', tip_racks=[tiprack_1, tiprack_2])
-    p300.distribute(50, reservoir['A12'], plate.wells())  # dilutent
+    p300.distribute(50, reservoir['A12'], plate.wells())  # diluent
 
     # loop through each row
     for i in range(8):

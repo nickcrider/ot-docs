@@ -99,7 +99,7 @@ web.run_app(app, # our application
                             # requests from this computer for testing)
             port=80)        # the standard http port; may need to
                             # change to something else if another
-                            # server is runnin
+                            # server is running
 ```
 
 The Python protocol gets to a certain step, hits that endpoint, and either waits or proceeds:

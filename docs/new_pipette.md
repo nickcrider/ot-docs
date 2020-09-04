@@ -117,7 +117,7 @@ you are using multi-channel pipettes. One common exception to this rule
 is when using 384-well plates. The spacing between the wells in a
 384-well plate and the space between the nozzles of a multi-channel
 pipette means that a multi-channel pipette accesses every other well in
-a column. Specifying well A1 acesses every other well starting with the
+a column. Specifying well A1 accesses every other well starting with the
 first (rows A, C, E, G, I, K, M, and O); specifying well B1 similarly
 accesses every other well, but starting with the second (rows B, D, F,
 H, J, L, N, and P).

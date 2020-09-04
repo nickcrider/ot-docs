@@ -1,6 +1,6 @@
 # Simulating on the Command Line
 
-Simluating protocols requires the `opentrons` package installed.
+Simulating protocols requires the `opentrons` package installed.
 The best way to do that is to get it from Python's
 package manager, `pip`.
 

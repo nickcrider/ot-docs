@@ -109,8 +109,8 @@ def run(protocol: protocol_apiProtocolContext):
                                       label='Temperature-Controlled Tubes')
 ```
 
-Notice that when you load labware on a module, you don't specify the
-labware's deck slot. The labware is loaded on the module, on whichever
+Notice that when you load labware on a module, you don't need to specify the
+labware deck slot. The labware is loaded on the module, on whichever
 deck slot the module occupies.
 
 _New in version 2.0_

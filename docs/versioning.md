@@ -8,7 +8,7 @@ versions it will work with, and allows Opentrons to version the Python
 Protocol API based only on changes that affect protocols.
 
 !!! Tip
-    While we increase the maxium availible API Version when add new 
+    While we increase the maximum available API Version when add new 
     features, your protocol will continue to have the same pipetting 
     performance as long as your protocol's `'apiLevel'` remains the same.
 
@@ -20,7 +20,7 @@ version 2 and minor version 1.
 
 ## Major and Minor Version
 
-The major version of the API is increased whenever there are signficant
+The major version of the API is increased whenever there are significant
 structural or behavioral changes to protocols. For instance, major
 version 2 of the API was introduced because protocols must now have a
 `run` function that takes a `protocol` argument rather than importing
@@ -181,7 +181,7 @@ The following improvements were made to the [`touch_tip()`](building_block/liqui
 
 ### Version 2.5
 
-New [Utillity Commands](building_block/utility.md) were added:
+New [Utility Commands](building_block/utility.md) were added:
 
 -   `ProtocolContext.set_rail_lights()`: turns robot rail lights on or off
 -   `ProtocolContext.rail_lights_on`: describes whether or not the rail lights are on
