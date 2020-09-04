@@ -1,6 +1,8 @@
 name: Vale
 on:
-  workflow_dispatch:
+  push:
+    branches: 
+      - test-vale
 
 jobs:
   prose:
