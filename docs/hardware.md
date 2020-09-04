@@ -2,7 +2,7 @@
 
 This section shows you how to interact with hardware in the API. The API makes 
 it easy to manage the pipettes attached to your robot, the labware you're using 
-to hold your reagents, and (optionally) the Openrons Hardware modules that enable 
+to hold your reagents, and (optionally) the Opentrons Hardware modules that enable 
 additional workflows.
 
 Specifically, you'll learn how the API handles:
@@ -19,11 +19,11 @@ load string.
 
 | Pipette           | Range         | Model Name            |
 | ----------------- | ------------- | --------------------- |
-| P20 Single GEN2   | 1 - 20 µL     | `'p20_single_gen2'`   |
-| P300 Single GEN2  | 20 - 300 µL   | `'p300_single_gen2'`  |
-| P1000 Single GEN2 | 100 - 1000 µL | `'p1000_single_gen2'` |
-| P300 Multi GEN2   | 20-300 µL     | `'p300_multi_gen2'`   |
-| P20 Multi GEN2    | 1-20 µL       | `'p20_multi_gen2'`    |
+| P20 Single GEN2   | 1–20 µL     | `'p20_single_gen2'`   |
+| P300 Single GEN2  | 20–300 µL   | `'p300_single_gen2'`  |
+| P1000 Single GEN2 | 100–1000 µL | `'p1000_single_gen2'` |
+| P300 Multi GEN2   | 20–300 µL     | `'p300_multi_gen2'`   |
+| P20 Multi GEN2    | 1–20 µL       | `'p20_multi_gen2'`    |
 
 Once you've gotten them physically attached, [the next section of the guide](new_pipette.md) will show 
 you how to use them.

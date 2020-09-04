@@ -12,7 +12,7 @@ running the robot without the App!
 
 - Catching an `OutOfTipsError`
 - Blink the OT-2 Lights
-- Impliment your own liquid level tracking
+- Implement your own liquid level tracking
 
 ## Data & Device Management
 

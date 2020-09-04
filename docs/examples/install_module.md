@@ -30,7 +30,7 @@ If you have a set of functions or variables that you use often, you might want t
 
 We advise using a text editor to create the module on your computer. The OT-2 is limited to command-line editors which makes it difficult to write complex or long modules. 
 
-You can then transfer the files to your OT-2 by using SCP and import them as normal.
+You can then transfer the files to your OT-2 by using `scp` and import them as normal.
 
 ## FAQ
 
@@ -56,7 +56,7 @@ compilation terminated
 error: command 'get' failed with exit status 1
 ```
 
-If one of these packages is critical to your workflow, you can ask us to include it on all OT-2s by default, starting with the next software update.
+If one of these packages is critical to your workflow, you can request our team to install it by default on all OT-2, starting with the next software update.
 
 First, please search our Github repository issues to see if someone else has already requested that Python package. If they have, please thumbs-up their issue instead of making a new one.
 

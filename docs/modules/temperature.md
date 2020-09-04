@@ -8,7 +8,7 @@ Temperature Modules are represented in code by
 `TemperatureModuleContext` objects.
 
 The Temperature Module has the following methods that can be accessed
-during a protocol. For the purposes of this section, assume we have the
+during a protocol. For the purposes of this section, assume there is the
 following already:
 
 ```python
@@ -68,7 +68,7 @@ _New in version 2.0_
 ## Check the Status
 
 The `TemperatureModuleContext.status`
-property is a string that is one of `'heating'`, `'cooling'`,
+property is a string that's one of `'heating'`, `'cooling'`,
 `'holding at target'` or `'idle'`.
 
 ```python

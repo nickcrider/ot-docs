@@ -132,7 +132,7 @@ When a list of tip racks is associated with a pipette in its `tip_racks`
 argument, the pipette will automatically pick up the next unused tip in
 the list whenever you call `pick_up_tip()`. The
 pipette will first use all tips in the first tiprack, then move on to
-the second, and so on:
+the second, and continue until it runs out:
 
 ```python
 pipette.pick_up_tip()  # picks up tip_rack_1:A1

@@ -35,7 +35,7 @@ You don't need to install cURL on Windows; a different tool will replace it.
 
 ## Open the command line
 
-Setup will take place over the command line. Don't worry if you've never used it before – we will walk you through it!
+Setup will take place over the command line. Don't worry if you've never used it before—we will walk you through it!
 
 Open a new PowerShell window (if you're using Windows 10) or a new Terminal window (if you're using Linux or macOS).
 
@@ -63,11 +63,11 @@ And press Enter.
 
 ### 2. Enter a passphrase
 
-The program will ask you to choose a passphrase. You will use this passphrase later when you connect to your OT-2 over SSH.
+The program will let you to choose a passphrase. You will use this passphrase later when you connect to your OT-2 over SSH.
 
 Providing a passphrase is optional, but we strongly recommend it. (Otherwise, anyone who has access to the file on your computer could also access your OT-2.)
 
-When you type in the passphrase, your typing won't show up. Don't worry – it's just being hidden for security! Press Enter when you've finished, and then enter the passphrase again to confirm it.
+When you type in the passphrase, your typing won't show up. Don't worry—it's just being hidden for security! Press Enter when you've finished, and then enter the passphrase again to confirm it.
 
 !!! Warning
     If you lose this passphrase, you won't be able to recover it, and you'll have to start this guide all over to connect to your OT-2. We recommend storing your passphrase somewhere secure, like a password manager. 
@@ -93,7 +93,7 @@ Now that you've created an SSH key pair, you'll install the public key to your O
 
 ### 1. Connect via USB
 
-To show that you have physical access to the OT-2, you must connect to it via USB for this part. A Wi-Fi connection will not work. Plug in the USB cable, and confirm that your OT-2 is shown with a USB icon in the Opentrons App. You may need to refresh the list. 
+To show that you have physical access to the OT-2, you must connect to it via USB for this part. A Wi-Fi connection won't work. Plug in the USB cable, and confirm that your OT-2 is shown with a USB icon in the Opentrons App. You may need to refresh the list. 
 
 
 ### 2. Find your OT-2's wired IP address
@@ -103,7 +103,7 @@ It's shown under the Connectivity section of the App.
 
 ### 3. Upload your public key
 
-Paste the following command, but don't press Enter yet – we will have to modify it slightly.
+Paste the following command, but don't press Enter yet—we will have to modify it slightly.
 
 === "MacOS/Linux"
 
@@ -122,13 +122,13 @@ Paste the following command, but don't press Enter yet – we will have to modif
 
 Use the arrow keys to move to the part of the command that says `ROBOT_IP`. Replace `ROBOT_IP` with the actual wired IP address you found above.
 
-Press Enter to run the command. It should not take more than a second. If all goes well, you should see a response containing the phrase "Added key."
+Press Enter to run the command. It shouldn't take more than a second. If all goes well, you should see a response containing the phrase "Added key."
 
 ### Resolving `'{key' is not recognized` errors
 
 If you see an error message like this, you're using Command Prompt instead of PowerShell. Open a PowerShell window and try the command again.
 
-### Resolving "The response content cannot be parsed because the Internet Explorer engine is not available" errors
+### Resolving "The response content can't be parsed because the Internet Explorer engine isn't available" errors
 
 If you see an error message like this, open Internet Explorer, go through its first-time setup, and then run the command again. PowerShell relies on Internet Explorer to configure some network settings.
 

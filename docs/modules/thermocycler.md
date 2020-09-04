@@ -14,7 +14,7 @@ our [support
 article](https://support.opentrons.com/en/articles/3469797-thermocycler-module)
 on controlling the Thermocycler in the Opentrons App.
 
-For the purposes of this section, assume we have the following already:
+For the purposes of this section, assume there is the following already:
 
 ```python
 from opentrons import protocol_api
@@ -27,7 +27,7 @@ def run(protocol: protocol_apiProtocolContext):
 ```
 
 !!! Note
-    When loading the Thermocycler, it is not necessary to specify a slot.
+    When loading the Thermocycler, it's not necessary to specify a slot.
     This is because the Thermocycler has a default position that covers
     Slots 7, 8, 10, and 11. This is the only valid location for the
     Thermocycler on the OT-2 deck.
@@ -59,7 +59,7 @@ _New in version 2.0_
 
 ## Lid Temperature Control
 
-You can control when a lid temperature is set. It is recommended that
+You can control when a lid temperature is set. It's recommended that
 you set the lid temperature before executing a Thermocycler profile (see
 [Thermocycler Profiles](#thermocycler-profiles)). The range of the
 Thermocycler lid is 37 °C to 110 °C.
@@ -101,14 +101,14 @@ If you set a `temperature` and a `hold_time`, the Thermocycler will hold
 the temperature for the specified amount of time. Time can be passed in
 as minutes or seconds.
 
-With a hold time, it is important to also include the `block_max_volume`
+With a hold time, it's important to also include the `block_max_volume`
 parameter. This is to ensure that the sample reaches the target
 temperature before the hold time counts down.
 
 In the example below, the Thermocycler will hold the 50 µl samples at
 the specified temperature for 45 minutes and 15 seconds.
 
-If you do not specify a hold time the protocol will proceed once the
+If you don't specify a hold time the protocol will proceed once the
 temperature specified is reached.
 
 ```python
@@ -127,7 +127,7 @@ based on the amount of liquid in the wells of its labware. Specifying an
 accurate volume allows the Thermocycler to precisely track the
 temperature of the samples. The `block_max_volume` parameter is
 specified in µL and is the volume of the most-full well in the labware
-that is loaded on the Thermocycler's block. If not specified, it
+that's loaded on the Thermocycler's block. If not specified, it
 defaults to 25 µL.
 
 ```python
@@ -146,7 +146,7 @@ tc_mod.set_block_temperature(4, hold_time_seconds=60, ramp_rate=0.5)
 ```
 
 !!! Warning
-    Do not modify the `ramp_rate` unless you know what you're doing.
+    Don't modify the `ramp_rate` unless you know what you're doing.
 
 
 _New in version 2.0_
@@ -157,7 +157,7 @@ The Thermocycler can rapidly cycle through temperatures to execute
 heat-sensitive reactions. These cycles are defined as profiles.
 
 Thermocycler profiles are defined for the Protocol API as lists of
-dicts. Each dict should have a `temperature` key, which specifies the
+dictionary objects. Each dict should have a `temperature` key, which specifies the
 temperature of a profile step, and either or both of `hold_time_seconds`
 or `hold_time_minutes`, which specify the duration of the step. For
 instance, this profile commands the Thermocycler to drive its

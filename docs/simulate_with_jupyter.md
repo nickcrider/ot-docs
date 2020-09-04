@@ -14,11 +14,11 @@ import sys
 ```
 
 !!! Note
-    you do not need to do this if you want to use the 
-    [Robot's Jupyer Notebook](new_advanced_running.md#jupyter-notebook),
+    you don't need to do this if you want to use the 
+    [Robot's Jupyter Notebook](new_advanced_running.md#jupyter-notebook),
     you only need to use `pip` for your locally-installed notebook.
 
-## Using the Simluator in Jupyter or the Python Shell
+## Using the Simulator in Jupyter or the Python Shell
 
 The Opentrons Python package also provides an entrypoint to use the
 Opentrons simulation package from other Python contexts such as an

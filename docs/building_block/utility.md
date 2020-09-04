@@ -18,7 +18,7 @@ Unlike commands that require labware, like
 [Dispense](liquid_control.md#dispense),
 `move_to()` deals with `Location` instances,
 which combine positions in [Deck Coordinates](../new_protocol_api.md#deck-coordinates) and associated `Labware`
-instances. You don't have to create them yourself; this is what is
+instances. You don't have to create them yourself; this is what's
 returned from methods such as `Well.top()` and `Well.bottom()`. It
 does mean, however, that you can't move to a well directly; you must
 use `Well.top()` or build a `Location` yourself.
@@ -213,7 +213,7 @@ protocol.door_closed  # return True when the door is closed,
 !!! Warning
     If you chose to enable the door safety switch feature flag, you should
     only use `ProtocolContext.door_closed`
-    as a form of status check, and should not use it to control robot
+    as a form of status check, and shouldn't use it to control robot
     behavior. If you wish to implement custom method to pause or resume
     protocol using `ProtocolContext.door_closed`, make sure you have first disabled the feature flag.
 

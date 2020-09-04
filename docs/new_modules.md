@@ -30,8 +30,8 @@ def run(protocol: protocol_apiProtocolContext):
 
 !!! Note
     When you load a module in a protocol, you inform the OT-2 that you want
-    the specified module to be present. Even if you do not use the module
-    anywhere else in your protocol, the Opentrons App and the OT-2 will not
+    the specified module to be present. Even if you don't use the module
+    anywhere else in your protocol, the Opentrons App and the OT-2 won't
     let your protocol proceed until all modules loaded with `load_module()`
     are attached to the OT-2.
 
@@ -109,8 +109,8 @@ def run(protocol: protocol_apiProtocolContext):
                                       label='Temperature-Controlled Tubes')
 ```
 
-Notice that when you load labware on a module, you don't specify the
-labware's deck slot. The labware is loaded on the module, on whichever
+Notice that when you load labware on a module, you don't need to specify the
+labware deck slot. The labware is loaded on the module, on whichever
 deck slot the module occupies.
 
 _New in version 2.0_

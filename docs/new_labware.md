@@ -3,9 +3,9 @@
 When writing a protocol, you must inform the Protocol API about the
 labware you will be placing on the OT-2's deck.
 
-When you load labware, you specify the name of the labware (e.g.
+When you load labware, you specify the name of the labware (for example
 `'corning_96_wellplate_360ul_flat'`), and the slot on the OT-2's deck
-in which it will be placed (e.g. `'2'`). The first place to look for the
+in which it will be placed (for example `'2'`). The first place to look for the
 names of labware should always be the [Opentrons Labware
 Library](https://labware.opentrons.com), where Opentrons maintains a
 database of labware, their names in the API, what they look like,
@@ -52,7 +52,7 @@ correct definitions.
 
 ### Custom Labware
 
-If you have a piece of labware that is not in the Labware Library, you
+If you have a piece of labware that's not in the Labware Library, you
 can create your own definition using the [Opentrons Labware
 Creator](https://labware.opentrons.com/create/). Before using the
 Labware Creator, you should read the introduction article
@@ -60,7 +60,7 @@ Labware Creator, you should read the introduction article
 
 Once you have created your labware and saved it as a `.json` file, you
 can add it to the Opentrons App by clicking "More" and then
-"Labware". Once you have added your labware to the Opentrons App, it
+"Labware." Once you have added your labware to the Opentrons App, it
 will be available to all Python Protocol API version 2 protocols
 uploaded to your robot through that Opentrons App. If other people will
 be using this custom labware definition, they must also add it to their
