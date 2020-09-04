@@ -16,7 +16,7 @@ the "design" stage.
 ## Working with Python
 
 Using a popular and free code editor, like [Visual Studio Code](https://code.visualstudio.com/), 
-is the reccomended method for writing Python protocols. It has great documentation and 
+is the recommended method for writing Python protocols. It has great documentation and 
 a lot of awesome features to help get you started writing your own python code.
 
 !!! Note
