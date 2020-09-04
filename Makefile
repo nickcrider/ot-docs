@@ -35,7 +35,7 @@ version_info/:
 	mkdir version_info
 
 .PHONY: clean
-clean:
+clean: api-clean
 	rm -rf version_info
 
 # Sphinx build configuration options

@@ -21,22 +21,6 @@
 project = 'Opentrons API Documentation'
 copyright = '2020, Opentrons Labworks'
 author = 'Opentrons Labworks'
-'''
-# get the release
-from opentrons import __version__ as release
-
-# get the max API level
-from opentrons.protocol_api import MAX_SUPPORTED_VERSION 
-max_apiLevel = str(MAX_SUPPORTED_VERSION)
-
-# use rst_prolog to hold the subsitution
-rst_prolog = f"""
-.. |apiLevel| replace:: {max_apiLevel}
-.. |release| replace:: {release}
-"""
-'''
-# DEAD END
-# it appears myst curently does not support subsitution syntax
 
 # -- General configuration ---------------------------------------------------
 
