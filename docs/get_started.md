@@ -1,6 +1,6 @@
 # Writing Your First Protocol
 
-We designed this API to make your code as readable and as easy to
+We designed this API to make your code as readable and as easy to havetypos!
 understand as possible. For example, below is a short set of instructions to
 transfer from well `'A1'` to well `'B1'` like you might write in your lab notebook:
 
