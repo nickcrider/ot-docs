@@ -17,17 +17,16 @@ dl.field-list > dt{font-weight:bold;word-break:break-word;padding-left:0.5em;pad
 
 /* make code boxes behave the same */
 .highlight{position:relative;margin:1em 0;padding:0;border-radius:.1rem;background-color:var(--md-code-bg-color);line-height:1.4;-webkit-overflow-scrolling:touch;}
-.highlight pre{display:block;margin:0;padding:.525rem .6rem;background-color:transparent;overflow:auto;vertical-align:top;}
+.highlight pre{display:block;margin:0;padding:.525rem .6rem;background-color:transparent;overflow:auto;vertical-align:top;font-size: 0.85em;}
 .highlight pre::-webkit-scrollbar{width:.2rem;height:.2rem;}
 .highlight pre::-webkit-scrollbar-thumb{background-color:var(--md-default-fg-color--lighter);}
 .highlight pre::-webkit-scrollbar-thumb:hover{background-color:var(--md-accent-fg-color);}
 
 /* template defaults to showing links in print view, a good thing.
    But they're all relative here, thus useless. This makes them blank  */ 
-@media print a{&::after {
-    color: $md-color-black--light;
+@media print a::after {
     content: "&nbsp;";
 }
 
 /* make version added italic */
-.versionadded{font-style: italic;}
+.versionmodified{font-style: italic;}
